@@ -550,3 +550,100 @@ footer p{
     display:inline-block;
     margin-top:20px;
 }
+/* ==========================
+   ICON STYLING
+========================== */
+
+.card-icon,
+.quran-icon,
+.scholar-icon,
+.community-icon{
+
+    font-size:60px;
+
+    color:#c4d83f;
+
+    margin-bottom:25px;
+
+    display:block;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 20px rgba(196,216,63,.8),
+    0 0 40px rgba(196,216,63,.4);
+
+    transition:.4s;
+}
+
+.card:hover .card-icon,
+.scholar-box:hover .scholar-icon,
+.community:hover .community-icon,
+.quran-card:hover .quran-icon{
+
+    transform:scale(1.15) rotate(5deg);
+
+    text-shadow:
+    0 0 30px rgba(196,216,63,1),
+    0 0 60px rgba(196,216,63,.7);
+}
+
+/* ==========================
+   QURAN CARD
+========================== */
+
+.quran-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:35px;
+
+    text-align:center;
+}
+
+/* ==========================
+   CENTER ALIGN FIX
+========================== */
+
+.about-preview,
+.quran-preview,
+.scholar-section,
+.community{
+
+    text-align:center;
+}
+
+.about-preview .glass-card,
+.quran-preview .glass-card,
+.scholar-box{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:900px){
+
+    .quran-card{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .card-icon,
+    .quran-icon,
+    .scholar-icon,
+    .community-icon{
+
+        font-size:45px;
+    }
+}
