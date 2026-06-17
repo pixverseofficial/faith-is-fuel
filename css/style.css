@@ -384,3 +384,149 @@ body::after{
         align-items:center;
     }
 }
+/* ==========================
+   HOME PAGE SECTIONS
+========================== */
+
+section{
+    width:90%;
+    max-width:1300px;
+    margin:120px auto;
+}
+
+section h2{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:40px;
+}
+
+.glass-card,
+.card,
+.scholar-box{
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    transition:.4s;
+}
+
+.glass-card:hover,
+.card:hover,
+.scholar-box:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#c4d83f;
+
+    box-shadow:
+    0 0 30px rgba(196,216,63,.15),
+    0 0 60px rgba(196,216,63,.08);
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+}
+
+.card{
+    text-align:center;
+}
+
+.card h3{
+    color:#c4d83f;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#d9d9d9;
+    line-height:1.8;
+}
+
+.glass-card p{
+    line-height:1.9;
+    color:#d9d9d9;
+}
+
+.community,
+footer{
+    text-align:center;
+}
+
+footer{
+
+    margin-top:100px;
+
+    padding:80px 20px;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+footer h3{
+    color:#c4d83f;
+    font-size:2rem;
+}
+
+footer p{
+    color:#bdbdbd;
+}
+
+/* ==========================
+   SECTION ANIMATION
+========================== */
+
+.about-preview,
+.library-preview,
+.quran-preview,
+.adhkar-preview,
+.scholar-section,
+.community{
+
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ==========================
+   MOBILE SECTION FIXES
+========================== */
+
+@media(max-width:900px){
+
+    section h2{
+        font-size:2rem;
+    }
+
+    .glass-card,
+    .card,
+    .scholar-box{
+        padding:25px;
+    }
+
+    footer h3{
+        font-size:1.5rem;
+    }
+}
