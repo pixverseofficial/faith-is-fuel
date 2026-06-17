@@ -648,3 +648,31 @@ footer p{
         font-size:45px;
     }
 }
+.hadith-preview .glass-card,
+.bahs-preview .glass-card{
+
+    max-width:900px;
+    margin:auto;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.hadith-preview .glass-card:hover,
+.bahs-preview .glass-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#c4d83f;
+
+    box-shadow:
+    0 0 30px rgba(196,216,63,.15),
+    0 0 60px rgba(196,216,63,.08);
+}
