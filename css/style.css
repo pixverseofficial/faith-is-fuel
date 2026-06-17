@@ -491,9 +491,10 @@ footer p{
 .library-preview,
 .quran-preview,
 .adhkar-preview,
+.hadith-preview,
+.bahs-preview,
 .scholar-section,
 .community{
-
     animation:fadeUp 1s ease;
 }
 
