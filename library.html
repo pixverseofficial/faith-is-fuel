@@ -181,29 +181,88 @@ style="display:none;">
 
 <script type="module">
 
+
+
 import {
+
 db,
+
 collection,
+
 getDocs
+
 } from "./js/firebase.js";
+
+
 
 async function loadArticles(){
 
+
+
+try{
+
+
+
 const snapshot =
+
 await getDocs(
+
 collection(db,"articles")
+
 );
 
+
+
+console.log("Articles Found:", snapshot.size);
+
+
+
 const container =
+
 document.getElementById("articlesContainer");
+
+
 
 container.innerHTML = "";
 
+
+
+if(snapshot.empty){
+
+
+
+container.innerHTML = `
+
+<div class="card">
+
+<h3>No Articles Yet</h3>
+
+<p>Articles will appear here soon.</p>
+
+</div>
+
+`;
+
+
+
+return;
+
+
+
+}
+
+
+
 snapshot.forEach(doc=>{
+
+
 
 const article = doc.data();
 
+
+
 container.innerHTML += `
+
 <div class="card">
 
 <h3>${article.title}</h3>
@@ -211,15 +270,53 @@ container.innerHTML += `
 <p>${article.content}</p>
 
 </div>
+
 `;
+
+
 
 });
 
+
+
 }
+
+catch(error){
+
+
+
+console.error(error);
+
+
+
+document.getElementById("articlesContainer").innerHTML = `
+
+<div class="card">
+
+<h3>Error Loading Articles</h3>
+
+<p>Check browser console (F12).</p>
+
+</div>
+
+`;
+
+
+
+}
+
+
+
+}
+
+
 
 loadArticles();
 
+
+
 </script>
+
     
 </body>
 </html>
