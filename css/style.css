@@ -680,7 +680,56 @@ footer p{
 .nav-links a.active{
     color:#c4d83f;
 }
-/* PAGE TRANSITION */
+/* ==========================
+   PAGE TRANSITION
+========================== */
+
 .page-loader{
-...
+
+    position:fixed;
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.5s;
+}
+
+.page-loader img{
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 30px rgba(196,216,63,.8),
+    0 0 80px rgba(196,216,63,.4);
+
+    animation:loaderPulse 1s infinite;
+}
+
+.page-loader.show{
+
+    opacity:1;
+    pointer-events:auto;
+}
+
+@keyframes loaderPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
 }
