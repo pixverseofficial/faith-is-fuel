@@ -700,30 +700,41 @@ footer p{
 }
 
 .page-loader img{
-    width:300px;
-    height:300px;
-}
+
+    width:240px;
+    height:240px;
 
     border-radius:50%;
+    object-fit:cover;
+
+    border:3px solid rgba(255,255,255,.1);
 
     box-shadow:
-    0 0 30px rgba(196,216,63,.8),
-    0 0 80px rgba(196,216,63,.4);
+    0 0 40px rgba(196,216,63,.9),
+    0 0 120px rgba(196,216,63,.5);
 
-    animation:loaderPulse 1.5s ease-in-out infinite;
+    animation:pageLogo 2s ease-in-out infinite;
 }
 
-@keyframes loaderPulse{
+@keyframes pageLogo{
 
     0%{
-        transform:scale(1);
+        transform:scale(.7);
+        opacity:0;
     }
 
-    50%{
+    30%{
         transform:scale(1.15);
+        opacity:1;
+    }
+
+    60%{
+        transform:scale(1);
+        opacity:1;
     }
 
     100%{
-        transform:scale(1);
+        transform:scale(1.1);
+        opacity:.9;
     }
 }
