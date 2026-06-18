@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
     document.querySelector(".hero-content")?.animate(
     [
@@ -19,12 +19,11 @@ window.addEventListener("load", () => {
 
 });
 
-
 const loader = document.querySelector(".page-loader");
 
-document.querySelectorAll("a").forEach(link => {
+document.querySelectorAll("a").forEach(link=>{
 
-    link.addEventListener("click", function(e){
+    link.addEventListener("click",function(e){
 
         const href = this.getAttribute("href");
 
@@ -38,11 +37,11 @@ document.querySelectorAll("a").forEach(link => {
 
             loader.classList.add("show");
 
-            setTimeout(() => {
+            setTimeout(()=>{
 
                 window.location.href = href;
 
-            }, 1500);
+            },2000);
 
         }
 
