@@ -203,231 +203,61 @@ class="status-box"></div>
 
 </div>
 
-<script>
+<script type="module">
 
+import {
+db,
+collection,
+addDoc
+} from "./js/firebase.js";
 
-
-function addReel(){
-
-
-
-const title =
-
-document.getElementById("reelTitle").value;
-
-
-
-if(title.trim() === ""){
-
-
-
-document.getElementById("reelStatus")
-
-.innerHTML =
-
-"❌ Enter Reel Title";
-
-
-
-return;
-
-
-
-}
-
-
-
-document.getElementById("reelStatus")
-
-.innerHTML =
-
-"✅ Reel Saved Successfully";
-
-
-
-}
-
-
-
-function addArticle(){
-
-
+window.addArticle = async function(){
 
 const title =
-
 document.getElementById("articleTitle").value;
 
-
-
 const content =
-
 document.getElementById("articleContent").value;
 
-
-
 if(
-
-title.trim() === "" ||
-
-content.trim() === ""
-
+title.trim()==="" ||
+content.trim()===""
 ){
-
-
-
 document.getElementById("articleStatus")
-
-.innerHTML =
-
-"❌ Fill all fields";
-
-
-
+.innerHTML="❌ Fill all fields";
 return;
-
-
-
 }
 
+try{
 
-
-let articles =
-
-JSON.parse(
-
-localStorage.getItem("articles")
-
-) || [];
-
-
-
-articles.push({
-
+await addDoc(
+collection(db,"articles"),
+{
 title:title,
-
-content:content
-
-});
-
-
-
-localStorage.setItem(
-
-"articles",
-
-JSON.stringify(articles)
-
+content:content,
+createdAt:Date.now()
+}
 );
 
-
-
 document.getElementById("articleStatus")
-
-.innerHTML =
-
+.innerHTML=
 "✅ Article Published Successfully";
 
-
-
 document.getElementById("articleTitle").value="";
-
 document.getElementById("articleContent").value="";
 
+}
+catch(error){
 
+document.getElementById("articleStatus")
+.innerHTML=
+"❌ Upload Failed";
+
+console.log(error);
 
 }
 
-
-
-function addQA(){
-
-
-
-const question =
-
-document.getElementById("question").value;
-
-
-
-const answer =
-
-document.getElementById("answer").value;
-
-
-
-if(
-
-question.trim() === "" ||
-
-answer.trim() === ""
-
-){
-
-
-
-document.getElementById("qaStatus")
-
-.innerHTML =
-
-"❌ Fill all fields";
-
-
-
-return;
-
-
-
 }
-
-
-
-let qa =
-
-JSON.parse(
-
-localStorage.getItem("qa")
-
-) || [];
-
-
-
-qa.push({
-
-question:question,
-
-answer:answer
-
-});
-
-
-
-localStorage.setItem(
-
-"qa",
-
-JSON.stringify(qa)
-
-);
-
-
-
-document.getElementById("qaStatus")
-
-.innerHTML =
-
-"✅ Question Saved Successfully";
-
-
-
-document.getElementById("question").value="";
-
-document.getElementById("answer").value="";
-
-
-
-}
-
-
 
 </script>
 
