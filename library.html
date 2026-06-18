@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Faith Library | Faith Is Fuel</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+<div class="page-loader">
+    <img src="assets/logo.png" alt="Logo">
+</div>
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo-box">
+<img src="assets/logo.png" alt="Faith Is Fuel">
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="library.html" class="active">Faith Library</a></li>
+<li><a href="quran.html">Quran</a></li>
+<li><a href="hadith.html">Hadith</a></li>
+<li><a href="bahs.html">Bahs</a></li>
+<li><a href="adhkar.html">Adhkar</a></li>
+<li><a href="scholar.html">Scholar</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+                  <!-- LIBRARY HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img src="assets/logo.png" class="hero-logo">
+
+        <h1>FAITH LIBRARY</h1>
+
+        <h2>Knowledge • Reels • Answers</h2>
+
+        <p>
+            Explore Islamic articles, beneficial reels,
+            answers to common questions and authentic knowledge.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- LIBRARY SWITCH -->
+
+<section class="library-switch">
+
+    <div class="switch-buttons">
+
+        <button class="switch-btn active"
+        onclick="showTab('articles')">
+            Articles
+        </button>
+
+        <button class="switch-btn"
+        onclick="showTab('reels')">
+            Reels
+        </button>
+
+        <button class="switch-btn"
+        onclick="showTab('qa')">
+            Q&A
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ARTICLES -->
+
+<section id="articles" class="library-tab">
+
+    <h2>Islamic Articles</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>The Importance of Salah</h3>
+            <p>
+                Learn about the value and importance
+                of daily prayers in Islam.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Patience in Islam</h3>
+            <p>
+                Understanding sabr and its role
+                in a believer's life.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REELS -->
+
+<section id="reels"
+class="library-tab"
+style="display:none;">
+
+    <h2>Islamic Reels</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Daily Reminder #1</h3>
+
+            <video width="100%" controls>
+                <source src="videos/reel1.mp4"
+                type="video/mp4">
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Q&A -->
+
+<section id="qa"
+class="library-tab"
+style="display:none;">
+
+    <h2>Questions & Answers</h2>
+
+    <div class="glass-card">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Search your question..."
+        class="search-box">
+
+        <button
+        class="btn primary-btn"
+        onclick="searchQuestion()">
+
+            Search
+
+        </button>
+
+        <br><br>
+
+        <div id="resultArea">
+
+            <p>
+                Search a question to view answers.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+  
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Faith Is Fuel</h3>
+
+<br>
+
+<p>Fuel Your Heart With Faith</p>
+
+<br>
+
+<p>© 2026 Faith Is Fuel</p>
+
+</footer>
+  
+<script src="js/main.js"></script>
+
+</body>
+</html>
