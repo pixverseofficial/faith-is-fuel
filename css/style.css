@@ -680,3 +680,7 @@ footer p{
 .nav-links a.active{
     color:#c4d83f;
 }
+/* PAGE TRANSITION */
+.page-loader{
+...
+}
