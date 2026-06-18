@@ -676,3 +676,7 @@ footer p{
     0 0 30px rgba(196,216,63,.15),
     0 0 60px rgba(196,216,63,.08);
 }
+
+.nav-links a.active{
+    color:#c4d83f;
+}
