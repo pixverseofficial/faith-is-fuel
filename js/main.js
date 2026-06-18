@@ -48,3 +48,50 @@ document.querySelectorAll("a").forEach(link=>{
     });
 
 });
+function showTab(tabId){
+
+document
+.querySelectorAll(".library-tab")
+.forEach(tab=>{
+tab.style.display="none";
+});
+
+document
+.getElementById(tabId)
+.style.display="block";
+
+document
+.querySelectorAll(".switch-btn")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+event.target.classList.add("active");
+}
+
+function searchQuestion(){
+
+let q=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let result=
+document.getElementById("resultArea");
+
+if(q.includes("music")){
+
+result.innerHTML=`
+<h3>Music Haram Ano?</h3>
+<p>Sample answer here...</p>
+`;
+
+}else{
+
+result.innerHTML=`
+<h3>No Results Found</h3>
+<p>You may submit this question later.</p>
+`;
+}
+}
