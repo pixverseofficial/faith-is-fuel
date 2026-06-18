@@ -92,23 +92,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     <h2>Islamic Articles</h2>
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>The Importance of Salah</h3>
-            <p>
-                Learn about the value and importance
-                of daily prayers in Islam.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Patience in Islam</h3>
-            <p>
-                Understanding sabr and its role
-                in a believer's life.
-            </p>
-        </div>
+    <div class="cards" id="articlesContainer">
 
     </div>
 
@@ -192,7 +176,53 @@ style="display:none;">
 <p>© 2026 Faith Is Fuel</p>
 
 </footer>
-  
+
+<script>
+
+function loadArticles(){
+
+const articles =
+JSON.parse(
+localStorage.getItem("articles")
+) || [];
+
+const container =
+document.getElementById("articlesContainer");
+
+if(!container) return;
+
+container.innerHTML = "";
+
+if(articles.length === 0){
+
+container.innerHTML = `
+<div class="card">
+<h3>No Articles Yet</h3>
+<p>Articles will appear here soon.</p>
+</div>
+`;
+
+return;
+
+}
+
+articles.reverse().forEach(article=>{
+
+container.innerHTML += `
+<div class="card">
+<h3>${article.title}</h3>
+<p>${article.content}</p>
+</div>
+`;
+
+});
+
+}
+
+loadArticles();
+
+</script>
+    
 <script src="js/main.js"></script>
 
 </body>
