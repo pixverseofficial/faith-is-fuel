@@ -1,4 +1,4 @@
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
     document.querySelector(".hero-content")?.animate(
     [
@@ -19,32 +19,33 @@ window.addEventListener("load",()=>{
 
 });
 
+
 const loader = document.querySelector(".page-loader");
 
-document.querySelectorAll("a").forEach(link=>{
+document.querySelectorAll("a").forEach(link => {
 
-    const href = link.getAttribute("href");
+    link.addEventListener("click", function(e){
 
-    if(
-        href &&
-        !href.startsWith("#") &&
-        !href.startsWith("http")
-    ){
+        const href = this.getAttribute("href");
 
-        link.addEventListener("click",function(e){
+        if(
+            href &&
+            !href.startsWith("#") &&
+            !href.startsWith("http")
+        ){
 
             e.preventDefault();
 
             loader.classList.add("show");
 
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 window.location.href = href;
 
-            },3000);
+            }, 2000);
 
-        });
+        }
 
-    }
+    });
 
 });
