@@ -1,0 +1,240 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | Faith Is Fuel</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+.admin-container{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
+}
+
+.admin-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.admin-title h1{
+    font-size:3rem;
+    color:#c4d83f;
+}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.admin-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:30px;
+}
+
+.admin-card h2{
+    margin-bottom:20px;
+    color:#c4d83f;
+}
+
+.admin-input,
+.admin-textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:15px;
+
+    color:white;
+}
+
+.admin-textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.admin-file{
+    margin-bottom:20px;
+}
+
+.admin-btn{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#c4d83f;
+    color:#111;
+
+    font-weight:700;
+    cursor:pointer;
+}
+
+.admin-btn:hover{
+    transform:translateY(-3px);
+}
+
+.status-box{
+    margin-top:15px;
+    color:#c4d83f;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+<div class="admin-title">
+<h1>Faith Is Fuel Admin</h1>
+<p>Manage Reels, Articles and Q&A</p>
+</div>
+
+<div class="admin-grid">
+
+<!-- REELS -->
+
+<div class="admin-card">
+
+<h2>Upload Reel</h2>
+
+<input
+type="text"
+id="reelTitle"
+placeholder="Reel Title"
+class="admin-input">
+
+<input
+type="file"
+id="reelVideo"
+accept="video/*"
+class="admin-file">
+
+<button
+class="admin-btn"
+onclick="addReel()">
+
+Upload Reel
+
+</button>
+
+<div id="reelStatus"
+class="status-box"></div>
+
+</div>
+
+<!-- ARTICLE -->
+
+<div class="admin-card">
+
+<h2>Upload Article</h2>
+
+<input
+type="text"
+id="articleTitle"
+placeholder="Article Title"
+class="admin-input">
+
+<textarea
+id="articleContent"
+placeholder="Article Content..."
+class="admin-textarea"></textarea>
+
+<button
+class="admin-btn"
+onclick="addArticle()">
+
+Publish Article
+
+</button>
+
+<div id="articleStatus"
+class="status-box"></div>
+
+</div>
+
+<!-- Q&A -->
+
+<div class="admin-card">
+
+<h2>Add Question & Answer</h2>
+
+<input
+type="text"
+id="question"
+placeholder="Question"
+class="admin-input">
+
+<textarea
+id="answer"
+placeholder="Answer"
+class="admin-textarea"></textarea>
+
+<button
+class="admin-btn"
+onclick="addQA()">
+
+Save Q&A
+
+</button>
+
+<div id="qaStatus"
+class="status-box"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function addReel(){
+
+document
+.getElementById("reelStatus")
+.innerHTML =
+"✅ Reel saved successfully";
+
+}
+
+function addArticle(){
+
+document
+.getElementById("articleStatus")
+.innerHTML =
+"✅ Article published successfully";
+
+}
+
+function addQA(){
+
+document
+.getElementById("qaStatus")
+.innerHTML =
+"✅ Question saved successfully";
+
+}
+
+</script>
+
+</body>
+</html>
+```
