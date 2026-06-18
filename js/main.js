@@ -41,7 +41,7 @@ document.querySelectorAll("a").forEach(link=>{
 
                 window.location.href = href;
 
-            },2000);
+            },1000);
 
         }
 
