@@ -176,42 +176,40 @@ style="display:none;">
 <p>© 2026 Faith Is Fuel</p>
 
 </footer>
+        
+<script src="js/main.js"></script>
 
-<script>
+<script type="module">
 
-function loadArticles(){
+import {
+db,
+collection,
+getDocs
+} from "./js/firebase.js";
 
-const articles =
-JSON.parse(
-localStorage.getItem("articles")
-) || [];
+async function loadArticles(){
+
+const snapshot =
+await getDocs(
+collection(db,"articles")
+);
 
 const container =
 document.getElementById("articlesContainer");
 
-if(!container) return;
-
 container.innerHTML = "";
 
-if(articles.length === 0){
+snapshot.forEach(doc=>{
 
-container.innerHTML = `
-<div class="card">
-<h3>No Articles Yet</h3>
-<p>Articles will appear here soon.</p>
-</div>
-`;
-
-return;
-
-}
-
-articles.reverse().forEach(article=>{
+const article = doc.data();
 
 container.innerHTML += `
 <div class="card">
+
 <h3>${article.title}</h3>
+
 <p>${article.content}</p>
+
 </div>
 `;
 
@@ -223,7 +221,5 @@ loadArticles();
 
 </script>
     
-<script src="js/main.js"></script>
-
 </body>
 </html>
