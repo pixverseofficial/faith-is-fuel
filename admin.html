@@ -211,7 +211,55 @@ collection,
 addDoc
 } from "./js/firebase.js";
 
+window.addQA = async function(){
+
+const question =
+document.getElementById("question").value;
+
+const answer =
+document.getElementById("answer").value;
+
+if(
+question.trim() === "" ||
+answer.trim() === ""
+){
+document.getElementById("qaStatus")
+.innerHTML = "❌ Fill all fields";
+return;
+}
+
+try{
+
+await addDoc(
+collection(db,"qa"),
+{
+question: question,
+answer: answer,
+createdAt: Date.now()
+}
+);
+
+document.getElementById("qaStatus")
+.innerHTML =
+"✅ Question Saved Successfully";
+
+document.getElementById("question").value = "";
+document.getElementById("answer").value = "";
+
+}
+catch(error){
+
+console.log(error);
+
+document.getElementById("qaStatus")
+.innerHTML =
+"❌ Upload Failed";
+
+}
+
+}
 window.addArticle = async function(){
+    
 
 const title =
 document.getElementById("articleTitle").value;
