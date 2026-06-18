@@ -776,3 +776,42 @@ outline:none;
 margin-bottom:15px;
 font-size:1rem;
 }
+.library-switch{
+    text-align:center;
+}
+
+.switch-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.switch-btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+
+    background:rgba(255,255,255,.08);
+    color:white;
+
+    transition:.3s;
+}
+
+.switch-btn.active{
+    background:#c4d83f;
+    color:#111;
+}
+
+.search-box{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+    background:#111;
+    color:white;
+}
