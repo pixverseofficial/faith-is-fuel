@@ -1,6 +1,6 @@
 window.addEventListener("load",()=>{
 
-    document.querySelector(".hero-content").animate(
+    document.querySelector(".hero-content")?.animate(
     [
         {
             opacity:0,
@@ -16,5 +16,35 @@ window.addEventListener("load",()=>{
         easing:"ease-out",
         fill:"forwards"
     });
+
+});
+
+const loader = document.querySelector(".page-loader");
+
+document.querySelectorAll("a").forEach(link=>{
+
+    const href = link.getAttribute("href");
+
+    if(
+        href &&
+        !href.startsWith("#") &&
+        !href.startsWith("http")
+    ){
+
+        link.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            loader.classList.add("show");
+
+            setTimeout(()=>{
+
+                window.location.href = href;
+
+            },500);
+
+        });
+
+    }
 
 });
