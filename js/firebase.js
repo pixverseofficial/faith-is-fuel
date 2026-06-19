@@ -5,6 +5,8 @@ getFirestore,
 collection,
 addDoc,
 getDocs,
+deleteDoc,
+doc,
 query,
 where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -27,6 +29,8 @@ db,
 collection,
 addDoc,
 getDocs,
+deleteDoc,
+doc,
 query,
 where
 };
