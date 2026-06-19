@@ -243,7 +243,10 @@ container.innerHTML += `
 
 <button
 class="read-more-btn"
-onclick="alert('working')">
+onclick='openArticle(
+${JSON.stringify(article.title)},
+${JSON.stringify(article.content)}
+)'>
 Read More
 </button>
 
