@@ -10,6 +10,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 
 .admin-container{
@@ -30,7 +33,7 @@
 
 .admin-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns:repeat(2,1fr);
     gap:30px;
 }
 
@@ -93,6 +96,24 @@
     color:#c4d83f;
 }
 
+.delete-btn{
+    padding:8px 18px;
+    border:none;
+    border-radius:999px;
+    background:#ff4444;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    font-size:.9rem;
+}
+
+.delete-btn:hover{
+    transform:translateY(-2px);
+    background:#ff0000;
+    box-shadow:0 0 20px rgba(255,68,68,.4);
+}
+
 </style>
 
 </head>
@@ -108,7 +129,7 @@
 
 <div class="admin-grid">
 
-<!-- REELS -->
+<!-- Upload Reel -->
 
 <div class="admin-card">
 
@@ -145,7 +166,7 @@ class="status-box"></div>
 
 </div>
 
-<!-- ARTICLE -->
+<!-- Upload Article -->
 
 <div class="admin-card">
 
@@ -175,6 +196,8 @@ class="status-box"></div>
 
 </div>
 
+<!-- All Articles -->
+
 <div class="admin-card">
 
 <h2>All Articles</h2>
@@ -186,6 +209,8 @@ Loading articles...
 </div>
 
 </div>
+
+<!-- All Reels -->
 
 <div class="admin-card">
 
@@ -341,8 +366,13 @@ articlesList.innerHTML += `
 
 <h4>${article.title}</h4>
 
-<button onclick="deleteArticle('${articleDoc.id}')">
-Delete
+<button
+class="delete-btn"
+onclick="deleteArticle('${articleDoc.id}')">
+
+<i class="fa-solid fa-trash"></i>
+ Delete
+
 </button>
 
 </div>
@@ -373,8 +403,13 @@ reelsList.innerHTML += `
 
 <h4>${reel.title}</h4>
 
-<button onclick="deleteReel('${reelDoc.id}')">
-Delete
+<button
+class="delete-btn"
+onclick="deleteReel('${reelDoc.id}')">
+
+<i class="fa-solid fa-trash"></i>
+ Delete
+
 </button>
 
 </div>
