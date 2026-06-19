@@ -266,54 +266,6 @@ document.getElementById("articlesContainer").innerHTML = `
 
 loadArticles();
 
-window.searchQuestion = async function(){
-
-const searchText =
-document.getElementById("searchInput").value;
-
-document.getElementById("resultArea").innerHTML =
-"Searching...";
-try{
-
-const q = query(
-collection(db,"qa"),
-where("question","==",searchText)
-);
-
-const snapshot = await getDocs(q);
-
-if(snapshot.empty){
-
-document.getElementById("resultArea").innerHTML =
-"<p>No answer found.</p>";
-
-return;
-
-}
-
-snapshot.forEach(doc=>{
-
-const data = doc.data();
-
-document.getElementById("resultArea").innerHTML = `
-<h3>${data.question}</h3>
-<p>${data.answer}</p>
-`;
-
-});
-
-}
-catch(error){
-
-console.log(error);
-
-document.getElementById("resultArea").innerHTML =
-"<p>Error loading answer.</p>";
-
-}
-}
-
-
 </script>
 
     
