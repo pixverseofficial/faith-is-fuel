@@ -174,6 +174,7 @@ Publish Article
 class="status-box"></div>
 
 </div>
+
 <div class="admin-card">
 
 <h2>All Articles</h2>
@@ -184,6 +185,17 @@ Loading articles...
 
 </div>
 
+</div>
+
+<div class="admin-card">
+
+<h2>All Reels</h2>
+
+<div id="reelsList">
+
+Loading reels...
+
+</div>
 
 </div>
 
@@ -243,6 +255,8 @@ document.getElementById("reelTitle").value="";
 document.getElementById("reelDescription").value="";
 document.getElementById("reelLink").value="";
 
+loadReels();
+
 }
 catch(error){
 
@@ -292,6 +306,8 @@ document.getElementById("articleStatus")
 document.getElementById("articleTitle").value="";
 document.getElementById("articleContent").value="";
 
+loadArticles();
+
 }
 catch(error){
 
@@ -337,7 +353,40 @@ Delete
 
 }
 
+async function loadReels(){
+
+const snapshot =
+await getDocs(collection(db,"reels"));
+
+const reelsList =
+document.getElementById("reelsList");
+
+reelsList.innerHTML = "";
+
+snapshot.forEach(reelDoc => {
+
+const reel = reelDoc.data();
+
+reelsList.innerHTML += `
+
+<div style="margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;">
+
+<h4>${reel.title}</h4>
+
+<button onclick="deleteReel('${reelDoc.id}')">
+Delete
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
 loadArticles();
+loadReels();
 
 window.deleteArticle = async function(id){
 
@@ -346,6 +395,16 @@ doc(db,"articles",id)
 );
 
 loadArticles();
+
+}
+
+window.deleteReel = async function(id){
+
+await deleteDoc(
+doc(db,"reels",id)
+);
+
+loadReels();
 
 }
 
