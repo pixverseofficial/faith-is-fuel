@@ -242,7 +242,11 @@ container.innerHTML += `
 </div>
 
 <button
-class="read-more-btn">
+class="read-more-btn"
+onclick="openArticle(
+`${article.title}`,
+`${article.content}`
+)">
 Read More
 </button>
 
