@@ -102,18 +102,7 @@ style="display:none;">
 
     <h2>Islamic Reels</h2>
 
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>Daily Reminder #1</h3>
-
-            <video width="100%" controls>
-                <source src="videos/reel1.mp4"
-                type="video/mp4">
-            </video>
-
-        </div>
+    <div class="cards" id="reelsContainer">
 
     </div>
 
@@ -283,9 +272,103 @@ document.getElementById("articlesContainer").innerHTML = `
 
 }
 
+async function loadReels(){
 
+try{
+
+const snapshot =
+await getDocs(
+collection(db,"reels")
+);
+
+const container =
+document.getElementById("reelsContainer");
+
+container.innerHTML = "";
+
+if(snapshot.empty){
+
+container.innerHTML = `
+
+<div class="card">
+
+<h3>No Reels Yet</h3>
+
+<p>Reels will appear here soon.</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+snapshot.forEach(doc => {
+
+const reel = doc.data();
+
+const card = document.createElement("div");
+card.className = "card";
+
+card.innerHTML = `
+
+<img
+src="assets/logo.png"
+style="
+width:80px;
+height:80px;
+display:block;
+margin:0 auto 15px;
+">
+
+<h3>${reel.title}</h3>
+
+<p>${reel.description}</p>
+
+<button
+class="read-more-btn">
+Watch Reel
+</button>
+
+`;
+
+card.querySelector(".read-more-btn")
+.addEventListener("click", () => {
+
+window.open(
+reel.link,
+"_blank"
+);
+
+});
+
+container.appendChild(card);
+
+});
+
+}
+
+catch(error){
+
+console.log(error);
+
+document.getElementById("reelsContainer").innerHTML = `
+
+<div class="card">
+
+<h3>Error Loading Reels</h3>
+
+</div>
+
+`;
+
+}
+
+}
 
 loadArticles();
+loadReels();
 
 window.openArticle = function(title, content){
 
