@@ -843,7 +843,8 @@ font-size:1rem;
     box-shadow:0 0 20px rgba(196,216,63,.4);
 
 }
-.card{
+
+#articlesContainer .card{
 
     display:flex;
     flex-direction:column;
@@ -852,299 +853,41 @@ font-size:1rem;
     min-height:500px;
 
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Faith Library | Faith Is Fuel</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-</head>
-<body>
-<div class="page-loader">
-    <img src="assets/logo.png" alt="Logo">
-</div>
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-<div class="logo-box">
-<img src="assets/logo.png" alt="Faith Is Fuel">
-</div>
-
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="library.html" class="active">Faith Library</a></li>
-<li><a href="quran.html">Quran</a></li>
-<li><a href="hadith.html">Hadith</a></li>
-<li><a href="bahs.html">Bahs</a></li>
-<li><a href="adhkar.html">Adhkar</a></li>
-<li><a href="scholar.html">Scholar</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-
-</nav>
-
-                  <!-- LIBRARY HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <img src="assets/logo.png" class="hero-logo">
-
-        <h1>FAITH LIBRARY</h1>
-
-        <h2>Knowledge • Reels</h2>
-
-        <p>
-            Explore Islamic articles, beneficial reels
-and authentic Islamic knowledge.
-            
-        </p>
-
-    </div>
-
-</section>
-
-<!-- LIBRARY SWITCH -->
-
-<section class="library-switch">
-
-    <div class="switch-buttons">
-
-        <button class="switch-btn active"
-        onclick="showTab('articles')">
-            Articles
-        </button>
-
-        <button class="switch-btn"
-        onclick="showTab('reels')">
-            Reels
-        </button>
-
-    </div>
-
-</section>
-
-<!-- ARTICLES -->
-
-<section id="articles" class="library-tab">
-
-    <h2>Islamic Articles</h2>
-
-    <div class="cards" id="articlesContainer">
-
-    </div>
-
-</section>
-
-<!-- REELS -->
-
-<section id="reels"
-class="library-tab"
-style="display:none;">
-
-    <h2>Islamic Reels</h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>Daily Reminder #1</h3>
-
-            <video width="100%" controls>
-                <source src="videos/reel1.mp4"
-                type="video/mp4">
-            </video>
-
-        </div>
-
-    </div>
-
-</section>
- 
-<!-- FOOTER -->
-
-<footer>
-
-<h3>Faith Is Fuel</h3>
-
-<br>
-
-<p>Fuel Your Heart With Faith</p>
-
-<br>
-
-<p>© 2026 Faith Is Fuel</p>
-
-</footer>
-
-<div id="articleModal" class="article-modal">
-
-    <div class="article-modal-content">
-
-        <span id="closeModal">&times;</span>
-
-        <h2 id="modalTitle"></h2>
-
-        <div id="modalContent"></div>
-
-    </div>
-
-</div>
-        
-<script src="js/main.js"></script>
-
-<script type="module">
-
-
-
-import {
-db,
-collection,
-getDocs,
-query,
-where
-} from "./js/firebase.js";
-
-
-async function loadArticles(){
-
-
-try{
-
-
-
-const snapshot =
-
-await getDocs(
-
-collection(db,"articles")
-
-);
-
-
-
-console.log("Articles Found:", snapshot.size);
-
-
-
-const container =
-
-document.getElementById("articlesContainer");
-
-
-
-container.innerHTML = "";
-
-
-
-if(snapshot.empty){
-
-
-
-container.innerHTML = `
-
-<div class="card">
-
-<h3>No Articles Yet</h3>
-
-<p>Articles will appear here soon.</p>
-
-</div>
-
-`;
-
-
-
-return;
-
-
-
+.article-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
+.article-modal-content{
+    width:100%;
+    max-width:900px;
+    max-height:80vh;
+    overflow-y:auto;
 
+    background:#111;
+    border:1px solid rgba(196,216,63,.25);
+    border-radius:25px;
 
-snapshot.forEach(doc=>{
-
-
-
-const article = doc.data();
-
-
-
-container.innerHTML += `
-
-<div class="card">
-
-<div>
-
-<h3>${article.title}</h3>
-
-<p>${article.content.substring(0,150)}...</p>
-
-</div>
-
-<button class="read-more-btn">
-Read More
-</button>
-
-</div>
-
-`;
-
-
-
-});
-
-
-
+    padding:35px;
+    color:white;
 }
 
-catch(error){
-
-
-
-console.error(error);
-
-
-
-document.getElementById("articlesContainer").innerHTML = `
-
-<div class="card">
-
-<h3>Error Loading Articles</h3>
-
-<p>Check browser console (F12).</p>
-
-</div>
-
-`;
-
-
-
+.article-modal-content h2{
+    color:#c4d83f;
+    margin-bottom:20px;
 }
 
-
-
+#closeModal{
+    float:right;
+    font-size:35px;
+    cursor:pointer;
+    color:#c4d83f;
 }
-
-
-
-loadArticles();
-
-</script>
-
-    
-</body>
-</html>
