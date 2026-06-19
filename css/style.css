@@ -891,3 +891,33 @@ font-size:1rem;
     cursor:pointer;
     color:#c4d83f;
 }
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:600;
+    margin-top:10px;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#ff2222;
+    transform:translateY(-2px);
+    box-shadow:0 0 15px rgba(255,77,77,.5);
+}
+
+@media(max-width:900px){
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+}
