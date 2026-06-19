@@ -221,7 +221,11 @@ container.innerHTML += `
 
 <h3>${article.title}</h3>
 
-<p>${article.content}</p>
+<p>${article.content.substring(0,150)}...</p>
+
+<button class="read-more-btn">
+Read More
+</button>
 
 </div>
 
