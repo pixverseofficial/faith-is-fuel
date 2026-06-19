@@ -843,3 +843,12 @@ font-size:1rem;
     box-shadow:0 0 20px rgba(196,216,63,.4);
 
 }
+.card{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    min-height:500px;
+
+}
