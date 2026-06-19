@@ -169,36 +169,6 @@ class="status-box"></div>
 
 </div>
 
-<!-- Q&A -->
-
-<div class="admin-card">
-
-<h2>Add Question & Answer</h2>
-
-<input
-type="text"
-id="question"
-placeholder="Question"
-class="admin-input">
-
-<textarea
-id="answer"
-placeholder="Answer"
-class="admin-textarea"></textarea>
-
-<button
-class="admin-btn"
-onclick="addQA()">
-
-Save Q&A
-
-</button>
-
-<div id="qaStatus"
-class="status-box"></div>
-
-</div>
-
 </div>
 
 </div>
@@ -211,53 +181,7 @@ collection,
 addDoc
 } from "./js/firebase.js";
 
-window.addQA = async function(){
 
-const question =
-document.getElementById("question").value;
-
-const answer =
-document.getElementById("answer").value;
-
-if(
-question.trim() === "" ||
-answer.trim() === ""
-){
-document.getElementById("qaStatus")
-.innerHTML = "❌ Fill all fields";
-return;
-}
-
-try{
-
-await addDoc(
-collection(db,"qa"),
-{
-question: question,
-answer: answer,
-createdAt: Date.now()
-}
-);
-
-document.getElementById("qaStatus")
-.innerHTML =
-"✅ Question Saved Successfully";
-
-document.getElementById("question").value = "";
-document.getElementById("answer").value = "";
-
-}
-catch(error){
-
-console.log(error);
-
-document.getElementById("qaStatus")
-.innerHTML =
-"❌ Upload Failed";
-
-}
-
-}
 window.addArticle = async function(){
     
 
