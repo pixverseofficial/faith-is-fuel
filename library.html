@@ -241,7 +241,12 @@ container.innerHTML += `
 
 </div>
 
-<button class="read-more-btn">
+<button
+class="read-more-btn"
+onclick="openArticle(
+`${article.title}`,
+`${article.content}`
+)">
 Read More
 </button>
 
@@ -288,6 +293,19 @@ document.getElementById("articlesContainer").innerHTML = `
 
 
 loadArticles();
+
+window.openArticle = function(title, content){
+
+document.getElementById("modalTitle").innerText =
+title;
+
+document.getElementById("modalContent").innerText =
+content;
+
+document.getElementById("articleModal").style.display =
+"flex";
+
+}
 
 </script>
 
