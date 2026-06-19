@@ -120,17 +120,23 @@ id="reelTitle"
 placeholder="Reel Title"
 class="admin-input">
 
+<textarea
+id="reelDescription"
+placeholder="Reel Description..."
+class="admin-textarea"
+style="min-height:120px;"></textarea>
+
 <input
-type="file"
-id="reelVideo"
-accept="video/*"
-class="admin-file">
+type="text"
+id="reelLink"
+placeholder="Instagram Reel Link"
+class="admin-input">
 
 <button
 class="admin-btn"
 onclick="addReel()">
 
-Upload Reel
+Publish Reel
 
 </button>
 
@@ -195,6 +201,60 @@ getDocs,
 deleteDoc,
 doc
 } from "./js/firebase.js";
+
+window.addReel = async function(){
+
+const title =
+document.getElementById("reelTitle").value;
+
+const description =
+document.getElementById("reelDescription").value;
+
+const link =
+document.getElementById("reelLink").value;
+
+if(
+title.trim()==="" ||
+description.trim()==="" ||
+link.trim()===""
+){
+document.getElementById("reelStatus")
+.innerHTML="❌ Fill all fields";
+return;
+}
+
+try{
+
+await addDoc(
+collection(db,"reels"),
+{
+title:title,
+description:description,
+link:link,
+createdAt:Date.now()
+}
+);
+
+document.getElementById("reelStatus")
+.innerHTML =
+"✅ Reel Published Successfully";
+
+document.getElementById("reelTitle").value="";
+document.getElementById("reelDescription").value="";
+document.getElementById("reelLink").value="";
+
+}
+catch(error){
+
+document.getElementById("reelStatus")
+.innerHTML =
+"❌ Upload Failed";
+
+console.log(error);
+
+}
+
+}
 
 window.addArticle = async function(){
     
