@@ -168,6 +168,18 @@ Publish Article
 class="status-box"></div>
 
 </div>
+<div class="admin-card">
+
+<h2>All Articles</h2>
+
+<div id="articlesList">
+
+Loading articles...
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -178,9 +190,11 @@ class="status-box"></div>
 import {
 db,
 collection,
-addDoc
+addDoc,
+getDocs,
+deleteDoc,
+doc
 } from "./js/firebase.js";
-
 
 window.addArticle = async function(){
     
@@ -228,6 +242,50 @@ document.getElementById("articleStatus")
 console.log(error);
 
 }
+
+}
+
+async function loadArticles(){
+
+const snapshot =
+await getDocs(collection(db,"articles"));
+
+const articlesList =
+document.getElementById("articlesList");
+
+articlesList.innerHTML = "";
+
+snapshot.forEach(articleDoc => {
+
+const article = articleDoc.data();
+
+articlesList.innerHTML += `
+
+<div style="margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;">
+
+<h4>${article.title}</h4>
+
+<button onclick="deleteArticle('${articleDoc.id}')">
+Delete
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadArticles();
+
+window.deleteArticle = async function(id){
+
+await deleteDoc(
+doc(db,"articles",id)
+);
+
+loadArticles();
 
 }
 
