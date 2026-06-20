@@ -1,131 +1,536 @@
-window.addEventListener("load", () => {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    document.querySelector(".hero-content")?.animate(
-        [
-            {
-                opacity: 0,
-                transform: "translateY(60px)"
-            },
-            {
-                opacity: 1,
-                transform: "translateY(0)"
-            }
-        ],
-        {
-            duration: 1500,
-            easing: "ease-out",
-            fill: "forwards"
-        }
-    );
+<title>Admin Dashboard | Faith Is Fuel</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.admin-container{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
+}
+
+.admin-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.admin-title h1{
+    font-size:3rem;
+    color:#c4d83f;
+}
+
+.admin-stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:500px;
+    margin:0 auto 50px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+}
+
+.stat-card h3{
+    font-size:2.5rem;
+    color:#c4d83f;
+    margin-bottom:5px;
+}
+
+.stat-card p{
+    color:#bdbdbd;
+    font-size:1rem;
+}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.admin-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:30px;
+}
+
+.admin-card h2{
+    margin-bottom:20px;
+    color:#c4d83f;
+}
+
+.admin-input,
+.admin-textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:15px;
+
+    color:white;
+}
+
+.admin-textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.admin-file{
+    margin-bottom:20px;
+}
+
+.admin-btn{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#c4d83f;
+    color:#111;
+
+    font-weight:700;
+    cursor:pointer;
+}
+
+.admin-btn:hover{
+    transform:translateY(-3px);
+}
+
+.status-box{
+    margin-top:15px;
+    color:#c4d83f;
+}
+
+.delete-btn{
+    padding:8px 18px;
+    border:none;
+    border-radius:999px;
+    background:#ff4444;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    font-size:.9rem;
+}
+
+.delete-btn:hover{
+    transform:translateY(-2px);
+    background:#ff0000;
+    box-shadow:0 0 20px rgba(255,68,68,.4);
+}
+
+@media(max-width:900px){
+    .admin-stats{
+        grid-template-columns:1fr;
+        max-width:300px;
+    }
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+<div class="admin-title">
+<h1>Faith Is Fuel Admin</h1>
+<p>Manage Reels and Articles</p>
+</div>
+
+<div class="admin-stats">
+
+<div class="stat-card">
+<h3 id="totalArticles">0</h3>
+<p>Articles</p>
+</div>
+
+<div class="stat-card">
+<h3 id="totalReels">0</h3>
+<p>Reels</p>
+</div>
+
+</div>
+
+<div class="admin-grid">
+
+<!-- Upload Reel -->
+
+<div class="admin-card">
+
+<h2>Upload Reel</h2>
+
+<input
+type="text"
+id="reelTitle"
+placeholder="Reel Title"
+class="admin-input">
+
+<textarea
+id="reelDescription"
+placeholder="Reel Description..."
+class="admin-textarea"
+style="min-height:120px;"></textarea>
+
+<input
+type="text"
+id="reelLink"
+placeholder="Instagram Reel Link"
+class="admin-input">
+
+<button
+class="admin-btn"
+onclick="addReel()">
+
+Publish Reel
+
+</button>
+
+<div id="reelStatus"
+class="status-box"></div>
+
+</div>
+
+<!-- Upload Article -->
+
+<div class="admin-card">
+
+<h2>Upload Article</h2>
+
+<input
+type="text"
+id="articleTitle"
+placeholder="Article Title"
+class="admin-input">
+
+<textarea
+id="articleContent"
+placeholder="Article Content..."
+class="admin-textarea"></textarea>
+
+<button
+class="admin-btn"
+onclick="addArticle()">
+
+Publish Article
+
+</button>
+
+<div id="articleStatus"
+class="status-box"></div>
+
+</div>
+
+<!-- All Articles -->
+
+<div class="admin-card">
+
+<h2>All Articles</h2>
+
+<div id="articlesList">
+
+Loading articles...
+
+</div>
+
+</div>
+
+<!-- All Reels -->
+
+<div class="admin-card">
+
+<h2>All Reels</h2>
+
+<div id="reelsList">
+
+Loading reels...
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import {
+db,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
+} from "./js/firebase.js";
+
+window.addReel = async function(){
+
+const title =
+document.getElementById("reelTitle").value;
+
+const description =
+document.getElementById("reelDescription").value;
+
+const link =
+document.getElementById("reelLink").value;
+
+if(
+title.trim()==="" ||
+description.trim()==="" ||
+link.trim()===""
+){
+document.getElementById("reelStatus")
+.innerHTML="❌ Fill all fields";
+return;
+}
+
+try{
+
+await addDoc(
+collection(db,"reels"),
+{
+title:title,
+description:description,
+link:link,
+createdAt:Date.now()
+}
+);
+
+document.getElementById("reelStatus")
+.innerHTML =
+"✅ Reel Published Successfully";
+
+document.getElementById("reelTitle").value="";
+document.getElementById("reelDescription").value="";
+document.getElementById("reelLink").value="";
+
+loadReels();
+loadStats();
+
+}
+catch(error){
+
+document.getElementById("reelStatus")
+.innerHTML =
+"❌ Upload Failed";
+
+console.log(error);
+
+}
+
+}
+
+window.addArticle = async function(){
+    
+
+const title =
+document.getElementById("articleTitle").value;
+
+const content =
+document.getElementById("articleContent").value;
+
+if(
+title.trim()==="" ||
+content.trim()===""
+){
+document.getElementById("articleStatus")
+.innerHTML="❌ Fill all fields";
+return;
+}
+
+try{
+
+await addDoc(
+collection(db,"articles"),
+{
+title:title,
+content:content,
+createdAt:Date.now()
+}
+);
+
+document.getElementById("articleStatus")
+.innerHTML=
+"✅ Article Published Successfully";
+
+document.getElementById("articleTitle").value="";
+document.getElementById("articleContent").value="";
+
+loadArticles();
+loadStats();
+
+}
+catch(error){
+
+document.getElementById("articleStatus")
+.innerHTML=
+"❌ Upload Failed";
+
+console.log(error);
+
+}
+
+}
+
+async function loadArticles(){
+
+const snapshot =
+await getDocs(collection(db,"articles"));
+
+const articlesList =
+document.getElementById("articlesList");
+
+articlesList.innerHTML = "";
+
+if(snapshot.empty){
+articlesList.innerHTML = "No Articles Found";
+return;
+}
+
+snapshot.forEach(articleDoc => {
+
+const article = articleDoc.data();
+
+articlesList.innerHTML += `
+
+<div style="margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;">
+
+<h4>${article.title}</h4>
+
+<button
+class="delete-btn"
+onclick="deleteArticle('${articleDoc.id}')">
+
+<i class="fa-solid fa-trash"></i>
+ Delete
+
+</button>
+
+</div>
+
+`;
 
 });
 
-/* PAGE LOADER */
+}
 
-const loader = document.querySelector(".page-loader");
+async function loadReels(){
 
-document.querySelectorAll("a").forEach(link => {
+const snapshot =
+await getDocs(collection(db,"reels"));
 
-    link.addEventListener("click", function (e) {
+const reelsList =
+document.getElementById("reelsList");
 
-        const href = this.getAttribute("href");
+reelsList.innerHTML = "";
 
-        if (
-            href &&
-            !href.startsWith("#") &&
-            !href.startsWith("http")
-        ) {
+if(snapshot.empty){
+reelsList.innerHTML = "No Reels Found";
+return;
+}
 
-            e.preventDefault();
+snapshot.forEach(reelDoc => {
 
-            loader.classList.add("show");
+const reel = reelDoc.data();
 
-            setTimeout(() => {
+reelsList.innerHTML += `
 
-                window.location.href = href;
+<div style="margin-bottom:15px;border-bottom:1px solid #333;padding-bottom:10px;">
 
-            }, 1000);
+<h4>${reel.title}</h4>
 
-        }
+<button
+class="delete-btn"
+onclick="deleteReel('${reelDoc.id}')">
 
-    });
+<i class="fa-solid fa-trash"></i>
+ Delete
+
+</button>
+
+</div>
+
+`;
 
 });
 
-/* LIBRARY TAB SWITCH */
-
-function showTab(tabId) {
-
-    document.querySelectorAll(".library-tab")
-        .forEach(tab => {
-            tab.style.display = "none";
-        });
-
-    document.getElementById(tabId)
-        .style.display = "block";
-
-    document.querySelectorAll(".switch-btn")
-        .forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-    event.target.classList.add("active");
 }
 
-/* Q&A DATABASE */
+async function loadStats(){
 
-const questions = [
+const articleSnap =
+await getDocs(collection(db,"articles"));
 
-    {
-        question: "What is Salah?",
-        answer: "Salah is the obligatory prayer performed five times daily."
-    },
+const reelSnap =
+await getDocs(collection(db,"reels"));
 
-    {
-        question: "What is Sabr?",
-        answer: "Sabr means patience and perseverance for the sake of Allah."
-    },
+document.getElementById("totalArticles")
+.innerText = articleSnap.size;
 
-    {
-        question: "Music Haram Ano?",
-        answer: "Different scholarly opinions exist. Consult authentic scholars for detailed guidance."
-    }
-
-];
-
-/* SEARCH FUNCTION */
-
-function searchQuestion() {
-
-    const input = document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    const area = document
-        .getElementById("resultArea");
-
-    const result = questions.find(q =>
-        q.question.toLowerCase().includes(input)
-    );
-
-    if (result) {
-
-        area.innerHTML = `
-            <h3>${result.question}</h3>
-            <p>${result.answer}</p>
-        `;
-
-    } else {
-
-        area.innerHTML = `
-            <h3>No Results Found</h3>
-            <p>You may submit this question later.</p>
-            <button class="btn primary-btn">
-                Submit Question
-            </button>
-        `;
-
-    }
+document.getElementById("totalReels")
+.innerText = reelSnap.size;
 
 }
+
+loadArticles();
+loadReels();
+loadStats();
+
+window.deleteArticle = async function(id){
+
+if(!confirm("Delete this article?")) return;
+
+await deleteDoc(
+doc(db,"articles",id)
+);
+
+loadArticles();
+loadStats();
+
+}
+
+window.deleteReel = async function(id){
+
+if(!confirm("Delete this reel?")) return;
+
+await deleteDoc(
+doc(db,"reels",id)
+);
+
+loadReels();
+loadStats();
+
+}
+
+</script>
+
+</body>
+</html>
