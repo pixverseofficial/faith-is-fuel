@@ -69,12 +69,12 @@ and authentic Islamic knowledge.
     <div class="switch-buttons">
 
         <button class="switch-btn active"
-        onclick="showTab('articles')">
+        onclick="showTab('articles', this)">
             Articles
         </button>
 
         <button class="switch-btn"
-        onclick="showTab('reels')">
+        onclick="showTab('reels', this)">
             Reels
         </button>
 
@@ -142,7 +142,23 @@ style="display:none;">
 
 <script type="module">
 
+window.showTab = function(tabId, btn) {
 
+    document.querySelectorAll(".library-tab")
+    .forEach(tab => {
+        tab.style.display = "none";
+    });
+
+    document.getElementById(tabId)
+    .style.display = "block";
+
+    document.querySelectorAll(".switch-btn")
+    .forEach(button => {
+        button.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+}
 
 import {
 db,
