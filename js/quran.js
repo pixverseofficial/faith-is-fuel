@@ -138,6 +138,12 @@ data.forEach(surah => {
 surahList.innerHTML += `
 <div class="card">
 <h3>${surah.number}. ${surah.name}</h3>
+
+<a href="surah.html?id=${surah.number}"
+class="read-more-btn">
+Open Surah
+</a>
+
 </div>
 `;
 
