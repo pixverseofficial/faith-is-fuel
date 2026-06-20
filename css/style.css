@@ -887,3 +887,28 @@ footer p{
         grid-template-columns:1fr;
     }
 }
+/* ADMIN ARTICLE & REEL SCROLL */
+
+#articlesList,
+#reelsList{
+    max-height:450px;
+    min-height:450px;
+    overflow-y:auto;
+    padding-right:8px;
+}
+
+#articlesList::-webkit-scrollbar,
+#reelsList::-webkit-scrollbar{
+    width:6px;
+}
+
+#articlesList::-webkit-scrollbar-thumb,
+#reelsList::-webkit-scrollbar-thumb{
+    background:#c4d83f;
+    border-radius:999px;
+}
+
+#articlesList::-webkit-scrollbar-track,
+#reelsList::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.05);
+}
