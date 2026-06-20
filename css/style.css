@@ -864,9 +864,9 @@ footer p{
 }
 
 .delete-btn{
-    background:#ff4d4d;
-    color:white;
-    border:none;
+    background:rgba(255,255,255,.08);
+    color:#ff5b5b;
+    border:1px solid rgba(255,91,91,.3);
     padding:8px 15px;
     border-radius:999px;
     cursor:pointer;
@@ -876,9 +876,10 @@ footer p{
 }
 
 .delete-btn:hover{
-    background:#ff2222;
+    background:#ff5b5b;
+    color:white;
     transform:translateY(-2px);
-    box-shadow:0 0 15px rgba(255,77,77,.5);
+    box-shadow:0 0 20px rgba(255,91,91,.4);
 }
 
 @media(max-width:900px){
