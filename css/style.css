@@ -863,6 +863,11 @@ footer p{
     gap:30px;
 }
 
+.admin-card{
+    display:flex;
+    flex-direction:column;
+}
+
 .delete-btn{
     background:rgba(255,255,255,.08);
     color:#ff5b5b;
@@ -887,6 +892,7 @@ footer p{
         grid-template-columns:1fr;
     }
 }
+
 /* ADMIN ARTICLE & REEL SCROLL */
 
 #articlesList,
@@ -911,16 +917,4 @@ footer p{
 #articlesList::-webkit-scrollbar-track,
 #reelsList::-webkit-scrollbar-track{
     background:rgba(255,255,255,.05);
-}
-.admin-card{
-    height:600px;
-    display:flex;
-    flex-direction:column;
-}
-
-#articlesList,
-#reelsList{
-    flex:1;
-    overflow-y:auto;
-    min-height:0;
 }
