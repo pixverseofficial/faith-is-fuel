@@ -15,6 +15,7 @@ body{
     overflow-x:hidden;
     min-height:100vh;
     position:relative;
+    padding-top:120px;
 }
 
 /* ==========================
@@ -92,27 +93,29 @@ body::after{
 ========================== */
 
 .navbar{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    width:90%;
+    width: 90%;
+    max-width: 1600px;
 
-    margin:20px auto;
+    z-index: 9999;
 
-    padding:15px 35px;
+    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,.25);
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+
+    padding: 15px 35px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(25px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:999px;
-
-    position:relative;
-    z-index:100;
+    transition: .4s ease;
 }
 
 .logo-box img{
@@ -354,12 +357,17 @@ body::after{
         gap:20px;
 
         border-radius:35px;
+
+        top: 10px;
+        width: 95%;
+        padding: 15px 20px;
     }
 
     .nav-links{
 
         flex-wrap:wrap;
         justify-content:center;
+        gap:15px;
     }
 
     .hero h1{
@@ -983,4 +991,3 @@ footer p{
     color:#ff5b5b;
     margin-top:15px;
 }
-```
