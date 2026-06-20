@@ -1,0 +1,12 @@
+[
+  { "number": 1, "name": "Al-Fatihah" },
+  { "number": 2, "name": "Al-Baqarah" },
+  { "number": 3, "name": "Ali Imran" },
+  { "number": 4, "name": "An-Nisa" },
+  { "number": 5, "name": "Al-Maidah" },
+  { "number": 6, "name": "Al-Anam" },
+  { "number": 7, "name": "Al-Araf" },
+  { "number": 8, "name": "Al-Anfal" },
+  { "number": 9, "name": "At-Tawbah" },
+  { "number": 10, "name": "Yunus" }
+]
