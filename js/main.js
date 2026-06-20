@@ -1,287 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admin Dashboard | Faith Is Fuel</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-.admin-container{
-    width:90%;
-    max-width:1200px;
-    margin:80px auto;
-}
-
-.admin-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.admin-title h1{
-    font-size:3rem;
-    color:#c4d83f;
-}
-
-.admin-stats{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-    max-width:500px;
-    margin:0 auto 50px;
-}
-
-.stat-card{
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-}
-
-.stat-card h3{
-    font-size:2.5rem;
-    color:#c4d83f;
-    margin-bottom:5px;
-}
-
-.stat-card p{
-    color:#bdbdbd;
-    font-size:1rem;
-}
-
-.admin-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
-}
-
-.admin-card{
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:30px;
-    padding:30px;
-}
-
-.admin-card h2{
-    margin-bottom:20px;
-    color:#c4d83f;
-}
-
-.admin-input,
-.admin-textarea{
-    width:100%;
-    padding:15px;
-    margin-bottom:15px;
-
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:15px;
-
-    color:white;
-}
-
-.admin-textarea{
-    min-height:150px;
-    resize:vertical;
-}
-
-.admin-file{
-    margin-bottom:20px;
-}
-
-.admin-btn{
-    width:100%;
-    padding:15px;
-
-    border:none;
-    border-radius:999px;
-
-    background:#c4d83f;
-    color:#111;
-
-    font-weight:700;
-    cursor:pointer;
-}
-
-.admin-btn:hover{
-    transform:translateY(-3px);
-}
-
-.status-box{
-    margin-top:15px;
-    color:#c4d83f;
-}
-
-.delete-btn{
-    padding:8px 18px;
-    border:none;
-    border-radius:999px;
-    background:#ff4444;
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
-    font-size:.9rem;
-}
-
-.delete-btn:hover{
-    transform:translateY(-2px);
-    background:#ff0000;
-    box-shadow:0 0 20px rgba(255,68,68,.4);
-}
-
-@media(max-width:900px){
-    .admin-stats{
-        grid-template-columns:1fr;
-        max-width:300px;
-    }
-    .admin-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="admin-container">
-
-<div class="admin-title">
-<h1>Faith Is Fuel Admin</h1>
-<p>Manage Reels and Articles</p>
-</div>
-
-<div class="admin-stats">
-
-<div class="stat-card">
-<h3 id="totalArticles">0</h3>
-<p>Articles</p>
-</div>
-
-<div class="stat-card">
-<h3 id="totalReels">0</h3>
-<p>Reels</p>
-</div>
-
-</div>
-
-<div class="admin-grid">
-
-<!-- Upload Reel -->
-
-<div class="admin-card">
-
-<h2>Upload Reel</h2>
-
-<input
-type="text"
-id="reelTitle"
-placeholder="Reel Title"
-class="admin-input">
-
-<textarea
-id="reelDescription"
-placeholder="Reel Description..."
-class="admin-textarea"
-style="min-height:120px;"></textarea>
-
-<input
-type="text"
-id="reelLink"
-placeholder="Instagram Reel Link"
-class="admin-input">
-
-<button
-class="admin-btn"
-onclick="addReel()">
-
-Publish Reel
-
-</button>
-
-<div id="reelStatus"
-class="status-box"></div>
-
-</div>
-
-<!-- Upload Article -->
-
-<div class="admin-card">
-
-<h2>Upload Article</h2>
-
-<input
-type="text"
-id="articleTitle"
-placeholder="Article Title"
-class="admin-input">
-
-<textarea
-id="articleContent"
-placeholder="Article Content..."
-class="admin-textarea"></textarea>
-
-<button
-class="admin-btn"
-onclick="addArticle()">
-
-Publish Article
-
-</button>
-
-<div id="articleStatus"
-class="status-box"></div>
-
-</div>
-
-<!-- All Articles -->
-
-<div class="admin-card">
-
-<h2>All Articles</h2>
-
-<div id="articlesList">
-
-Loading articles...
-
-</div>
-
-</div>
-
-<!-- All Reels -->
-
-<div class="admin-card">
-
-<h2>All Reels</h2>
-
-<div id="reelsList">
-
-Loading reels...
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script type="module">
-
 import {
 db,
 collection,
@@ -289,7 +5,7 @@ addDoc,
 getDocs,
 deleteDoc,
 doc
-} from "./js/firebase.js";
+} from "./firebase.js";
 
 window.addReel = async function(){
 
@@ -303,12 +19,12 @@ const link =
 document.getElementById("reelLink").value;
 
 if(
-title.trim()==="" ||
-description.trim()==="" ||
-link.trim()===""
+title.trim() === "" ||
+description.trim() === "" ||
+link.trim() === ""
 ){
 document.getElementById("reelStatus")
-.innerHTML="❌ Fill all fields";
+.innerHTML = "❌ Fill all fields";
 return;
 }
 
@@ -325,12 +41,11 @@ createdAt:Date.now()
 );
 
 document.getElementById("reelStatus")
-.innerHTML =
-"✅ Reel Published Successfully";
+.innerHTML = "✅ Reel Published Successfully";
 
-document.getElementById("reelTitle").value="";
-document.getElementById("reelDescription").value="";
-document.getElementById("reelLink").value="";
+document.getElementById("reelTitle").value = "";
+document.getElementById("reelDescription").value = "";
+document.getElementById("reelLink").value = "";
 
 loadReels();
 loadStats();
@@ -339,8 +54,7 @@ loadStats();
 catch(error){
 
 document.getElementById("reelStatus")
-.innerHTML =
-"❌ Upload Failed";
+.innerHTML = "❌ Upload Failed";
 
 console.log(error);
 
@@ -349,7 +63,6 @@ console.log(error);
 }
 
 window.addArticle = async function(){
-    
 
 const title =
 document.getElementById("articleTitle").value;
@@ -358,11 +71,11 @@ const content =
 document.getElementById("articleContent").value;
 
 if(
-title.trim()==="" ||
-content.trim()===""
+title.trim() === "" ||
+content.trim() === ""
 ){
 document.getElementById("articleStatus")
-.innerHTML="❌ Fill all fields";
+.innerHTML = "❌ Fill all fields";
 return;
 }
 
@@ -378,11 +91,10 @@ createdAt:Date.now()
 );
 
 document.getElementById("articleStatus")
-.innerHTML=
-"✅ Article Published Successfully";
+.innerHTML = "✅ Article Published Successfully";
 
-document.getElementById("articleTitle").value="";
-document.getElementById("articleContent").value="";
+document.getElementById("articleTitle").value = "";
+document.getElementById("articleContent").value = "";
 
 loadArticles();
 loadStats();
@@ -391,8 +103,7 @@ loadStats();
 catch(error){
 
 document.getElementById("articleStatus")
-.innerHTML=
-"❌ Upload Failed";
+.innerHTML = "❌ Upload Failed";
 
 console.log(error);
 
@@ -430,7 +141,7 @@ class="delete-btn"
 onclick="deleteArticle('${articleDoc.id}')">
 
 <i class="fa-solid fa-trash"></i>
- Delete
+Delete
 
 </button>
 
@@ -472,7 +183,7 @@ class="delete-btn"
 onclick="deleteReel('${reelDoc.id}')">
 
 <i class="fa-solid fa-trash"></i>
- Delete
+Delete
 
 </button>
 
@@ -500,10 +211,6 @@ document.getElementById("totalReels")
 
 }
 
-loadArticles();
-loadReels();
-loadStats();
-
 window.deleteArticle = async function(id){
 
 if(!confirm("Delete this article?")) return;
@@ -530,7 +237,6 @@ loadStats();
 
 }
 
-</script>
-
-</body>
-</html>
+loadArticles();
+loadReels();
+loadStats();
