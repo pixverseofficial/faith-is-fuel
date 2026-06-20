@@ -142,6 +142,83 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     box-shadow:0 0 20px rgba(255,68,68,.4);
 }
 
+.login-screen{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(20px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.login-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:40px;
+    width:100%;
+    max-width:400px;
+    text-align:center;
+}
+
+.login-logo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+    box-shadow:0 0 30px rgba(196,216,63,.5);
+}
+
+.login-card h2{
+    color:#c4d83f;
+    margin-bottom:25px;
+    font-size:1.8rem;
+}
+
+.login-card input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:15px;
+    color:white;
+    font-size:1rem;
+}
+
+.login-card input:focus{
+    outline:none;
+    border-color:#c4d83f;
+}
+
+.login-card button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:999px;
+    background:#c4d83f;
+    color:#111;
+    font-weight:700;
+    font-size:1.1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-card button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(196,216,63,.5);
+}
+
+#loginError{
+    color:#ff5b5b;
+    margin-top:15px;
+    font-size:.9rem;
+}
+
 @media(max-width:900px){
     .admin-stats{
         grid-template-columns:1fr;
@@ -149,6 +226,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
     .admin-grid{
         grid-template-columns:1fr;
+    }
+    .login-card{
+        padding:30px 20px;
+        margin:20px;
     }
 }
 
@@ -158,23 +239,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <body>
 
-<script>
+<div id="loginScreen" class="login-screen">
 
-const username = prompt("Username");
-const password = prompt("Password");
+    <div class="login-card">
 
-if (
-    username === "hellofaith" &&
-    password === "faith123"
-){
-    console.log("Access Granted");
-}
-else{
-    alert("Access Denied");
-    window.location.replace("index.html");
-}
+        <img src="assets/logo.png" class="login-logo">
 
-</script>
+        <h2>Faith Is Fuel Admin</h2>
+
+        <input
+        type="text"
+        id="loginUser"
+        placeholder="Username"
+        onkeypress="if(event.key==='Enter') checkLogin()">
+
+        <input
+        type="password"
+        id="loginPass"
+        placeholder="Password"
+        onkeypress="if(event.key==='Enter') checkLogin()">
+
+        <button onclick="checkLogin()">
+            Login
+        </button>
+
+        <p id="loginError"></p>
+
+    </div>
+
+</div>
+
+<div id="adminPanel" style="display:none;">
 
 <div class="admin-container">
 
@@ -297,6 +392,40 @@ Loading reels...
 </div>
 
 </div>
+
+</div>
+
+<script>
+
+function checkLogin(){
+
+    const user =
+    document.getElementById("loginUser").value;
+
+    const pass =
+    document.getElementById("loginPass").value;
+
+    if(
+        user === "hellofaith" &&
+        pass === "faith123"
+    ){
+
+        document.getElementById("loginScreen")
+        .style.display = "none";
+
+        document.getElementById("adminPanel")
+        .style.display = "block";
+
+    }else{
+
+        document.getElementById("loginError")
+        .innerHTML = "Invalid Username or Password";
+
+    }
+
+}
+
+</script>
 
 <script type="module">
 
@@ -436,6 +565,11 @@ document.getElementById("articlesList");
 
 articlesList.innerHTML = "";
 
+if(snapshot.empty){
+articlesList.innerHTML = "No Articles Found";
+return;
+}
+
 snapshot.forEach(articleDoc => {
 
 const article = articleDoc.data();
@@ -473,6 +607,11 @@ document.getElementById("reelsList");
 
 reelsList.innerHTML = "";
 
+if(snapshot.empty){
+reelsList.innerHTML = "No Reels Found";
+return;
+}
+
 snapshot.forEach(reelDoc => {
 
 const reel = reelDoc.data();
@@ -506,6 +645,8 @@ updateStats();
 
 window.deleteArticle = async function(id){
 
+if(!confirm("Delete this article?")) return;
+
 await deleteDoc(
 doc(db,"articles",id)
 );
@@ -516,6 +657,8 @@ updateStats();
 }
 
 window.deleteReel = async function(id){
+
+if(!confirm("Delete this reel?")) return;
 
 await deleteDoc(
 doc(db,"reels",id)
