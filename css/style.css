@@ -918,3 +918,69 @@ footer p{
 #reelsList::-webkit-scrollbar-track{
     background:rgba(255,255,255,.05);
 }
+```css
+.login-screen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#050505;
+    z-index:99999;
+}
+
+.login-card{
+    width:400px;
+    padding:40px;
+    text-align:center;
+
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+}
+
+.login-logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+.login-card h2{
+    color:#c4d83f;
+    margin-bottom:25px;
+}
+
+.login-card input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+
+    border:none;
+    border-radius:15px;
+
+    background:rgba(255,255,255,.06);
+    color:white;
+}
+
+.login-card button{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#c4d83f;
+    color:#111;
+
+    font-weight:700;
+    cursor:pointer;
+}
+
+#loginError{
+    color:#ff5b5b;
+    margin-top:15px;
+}
+```
