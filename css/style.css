@@ -912,3 +912,15 @@ footer p{
 #reelsList::-webkit-scrollbar-track{
     background:rgba(255,255,255,.05);
 }
+.admin-card{
+    height:600px;
+    display:flex;
+    flex-direction:column;
+}
+
+#articlesList,
+#reelsList{
+    flex:1;
+    overflow-y:auto;
+    min-height:0;
+}
