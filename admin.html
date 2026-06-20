@@ -31,6 +31,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     color:#c4d83f;
 }
 
+.admin-stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:500px;
+    margin:0 auto 50px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+}
+
+.stat-card h3{
+    font-size:2.5rem;
+    color:#c4d83f;
+    margin-bottom:5px;
+}
+
+.stat-card p{
+    color:#bdbdbd;
+    font-size:1rem;
+}
+
 .admin-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -114,6 +142,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     box-shadow:0 0 20px rgba(255,68,68,.4);
 }
 
+@media(max-width:900px){
+    .admin-stats{
+        grid-template-columns:1fr;
+        max-width:300px;
+    }
+    .admin-grid{
+        grid-template-columns:1fr;
+    }
+}
+
 </style>
 
 </head>
@@ -125,6 +163,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <div class="admin-title">
 <h1>Faith Is Fuel Admin</h1>
 <p>Manage Reels and Articles</p>
+</div>
+
+<div class="admin-stats">
+
+<div class="stat-card">
+<h3 id="totalArticles">0</h3>
+<p>Articles</p>
+</div>
+
+<div class="stat-card">
+<h3 id="totalReels">0</h3>
+<p>Reels</p>
+</div>
+
 </div>
 
 <div class="admin-grid">
@@ -239,6 +291,14 @@ deleteDoc,
 doc
 } from "./js/firebase.js";
 
+async function updateStats(){
+    const articlesSnapshot = await getDocs(collection(db,"articles"));
+    const reelsSnapshot = await getDocs(collection(db,"reels"));
+    
+    document.getElementById("totalArticles").textContent = articlesSnapshot.size;
+    document.getElementById("totalReels").textContent = reelsSnapshot.size;
+}
+
 window.addReel = async function(){
 
 const title =
@@ -281,6 +341,7 @@ document.getElementById("reelDescription").value="";
 document.getElementById("reelLink").value="";
 
 loadReels();
+updateStats();
 
 }
 catch(error){
@@ -332,6 +393,7 @@ document.getElementById("articleTitle").value="";
 document.getElementById("articleContent").value="";
 
 loadArticles();
+updateStats();
 
 }
 catch(error){
@@ -422,6 +484,7 @@ onclick="deleteReel('${reelDoc.id}')">
 
 loadArticles();
 loadReels();
+updateStats();
 
 window.deleteArticle = async function(id){
 
@@ -430,6 +493,7 @@ doc(db,"articles",id)
 );
 
 loadArticles();
+updateStats();
 
 }
 
@@ -440,6 +504,7 @@ doc(db,"reels",id)
 );
 
 loadReels();
+updateStats();
 
 }
 
