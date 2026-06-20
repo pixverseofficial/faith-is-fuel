@@ -1,5 +1,4 @@
 const params = new URLSearchParams(window.location.search);
-
 const surahId = params.get("id");
 
 document.getElementById("surahName").innerText =
