@@ -34,3 +34,28 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
     "Failed to load Surah.";
 
 });
+fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
+.then(res => res.json())
+.then(result => {
+
+const surah = result.data;
+
+document.getElementById("surahName").innerText =
+surah.englishName;
+
+let verses = "";
+
+surah.ayahs.forEach(ayah => {
+
+verses += `
+<div class="ayah">
+${ayah.numberInSurah}. ${ayah.text}
+</div>
+`;
+
+});
+
+document.getElementById("surahContent").innerHTML =
+verses;
+
+});
