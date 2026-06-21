@@ -29,12 +29,39 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
         .trim();
     }
 
+    const muqattaat = [
+        "الم","الر","المر","المص",
+        "كهيعص","طه","طس","طسم",
+        "يس","ص","حم","عسق",
+        "ق","ن"
+    ];
+
+    const firstWord = ayahs[0].text.split(" ")[0];
+
+    if(muqattaat.includes(firstWord)){
+        verses += `
+        <div class="muqattaat">
+            ${firstWord}
+            <span class="ayah-number">1</span>
+        </div>
+        `;
+
+        ayahs[0].text =
+        ayahs[0].text.replace(firstWord, "").trim();
+    }
+
     ayahs.forEach((ayah,index)=>{
+
+        let ayahNumber = index + 1;
+
+        if(muqattaat.includes(firstWord)){
+            ayahNumber = index + 2;
+        }
 
         verses += `
         ${ayah.text}
         <span class="ayah-number">
-        ${ayah.numberInSurah}
+        ${ayahNumber}
         </span>
         `;
     });
