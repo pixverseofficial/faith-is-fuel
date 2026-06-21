@@ -1,16 +1,16 @@
 const params = new URLSearchParams(window.location.search);
 const surahId = params.get("id");
 
-fetch(`https://api.quran.com/api/v4/chapters/${surahId}`)
+fetch(`https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`)
 .then(res => res.json())
 .then(result => {
 
     console.log(result);
 
-    const surah = result.data;
+    const ayahs = result.verses;
 
     document.getElementById("surahName").innerText =
-    surah.englishName;
+    "Surah " + surahId;
 
     const muqattaat = [
         "الم","الر","المر","المص",
@@ -22,9 +22,9 @@ fetch(`https://api.quran.com/api/v4/chapters/${surahId}`)
     let verses = "";
     verses += `<div class="quran-page">`;
 
-    let ayahs = [...surah.ayahs];
+    let ayahsList = [...ayahs];
 
-    if(surah.number !== 1 && surah.number !== 9){
+    if(surahId !== "1" && surahId !== "9"){
         verses += `
         <div class="bismillah">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
@@ -32,17 +32,17 @@ fetch(`https://api.quran.com/api/v4/chapters/${surahId}`)
         `;
     }
 
-    if(surah.number !== 1 && surah.number !== 9){
-        ayahs[0].text =
-        ayahs[0].text.replace(
+    if(surahId !== "1" && surahId !== "9"){
+        ayahsList[0].text =
+        ayahsList[0].text.replace(
         "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
         ""
         ).trim();
     }
 
-    ayahs.forEach(ayah => {
+    ayahsList.forEach(ayah => {
 
-        if(ayah.numberInSurah === 1){
+        if(ayah.verse_number === 1){
             const firstWord =
             ayah.text.split(" ")[0];
 
@@ -62,7 +62,7 @@ fetch(`https://api.quran.com/api/v4/chapters/${surahId}`)
         ${ayah.text}
 
         <span class="ayah-number">
-            ${ayah.numberInSurah}
+            ${ayah.verse_number}
         </span>
         `;
 
