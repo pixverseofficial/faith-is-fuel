@@ -1,88 +1,105 @@
 const params = new URLSearchParams(window.location.search);
 const surahId = params.get("id");
 
-fetch(`https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`)
+fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
 .then(res => res.json())
 .then(result => {
 
-    console.log(result);
+```
+const surah = result.data;
 
-    const ayahs = result.verses;
+document.getElementById("surahName").innerText =
+surah.englishName;
 
-    document.getElementById("surahName").innerText =
-    "Surah " + surahId;
+let ayahs = [...surah.ayahs];
 
-    const muqattaat = [
-        "الم","الر","المر","المص",
-        "كهيعص","طه","طس","طسم",
-        "يس","ص","حم","عسق",
-        "ق","ن"
-    ];
+let html = `<div class="quran-page">`;
 
-    let verses = "";
-    verses += `<div class="quran-page">`;
+if(surah.number !== 1 && surah.number !== 9){
 
-    let ayahsList = [...ayahs];
+    html += `
+    <div class="bismillah">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+    `;
 
-    if(surahId !== "1" && surahId !== "9"){
-        verses += `
-        <div class="bismillah">
-            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        </div>
-        `;
-    }
+    ayahs[0].text =
+    ayahs[0].text.replace(
+    "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+    ""
+    ).trim();
+}
 
-    if(surahId !== "1" && surahId !== "9"){
-        ayahsList[0].text =
-        ayahsList[0].text.replace(
-        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        ""
-        ).trim();
-    }
+const muqattaat = [
+    "الم","الر","المر","المص",
+    "كهيعص","طه","طس","طسم",
+    "يس","ص","حم","عسق",
+    "ق","ن"
+];
 
-    let firstAyah = ayahsList[0].text;
-    let muqattaahText = "";
+if(ayahs.length){
 
-    for(const item of muqattaat){
-        if(firstAyah.startsWith(item)){
-            muqattaahText = item;
-            ayahsList[0].text =
-            firstAyah.replace(item,"").trim();
-            break;
-        }
-    }
+    const firstAyah = ayahs[0];
 
-    if(muqattaahText){
-        verses += `
+    const firstWord =
+    firstAyah.text.split(" ")[0];
+
+    if(muqattaat.includes(firstWord)){
+
+        html += `
         <div class="muqattaat">
-            ${muqattaahText}
+            ${firstWord}
+            <span class="ayah-number">1</span>
         </div>
         `;
-    }
 
-    ayahsList.forEach(ayah => {
+        firstAyah.text =
+        firstAyah.text.replace(firstWord,"").trim();
 
-        verses += `
-        ${ayah.text}
-
-        <span class="ayah-number">
-            ${ayah.verse_number}
-        </span>
+        html += `
+        ${firstAyah.text}
+        <span class="ayah-number">2</span>
         `;
 
-    });
+        for(let i=1;i<ayahs.length;i++){
 
-    verses += `</div>`;
+            html += `
+            ${ayahs[i].text}
+            <span class="ayah-number">
+                ${i+2}
+            </span>
+            `;
+        }
 
-    document.getElementById("surahContent").innerHTML =
-    verses;
+    }else{
+
+        ayahs.forEach(ayah=>{
+
+            html += `
+            ${ayah.text}
+            <span class="ayah-number">
+                ${ayah.numberInSurah}
+            </span>
+            `;
+
+        });
+    }
+}
+
+html += `</div>`;
+
+document.getElementById("surahContent").innerHTML =
+html;
+```
 
 })
 .catch(error => {
 
-    console.log(error);
+```
+console.log(error);
 
-    document.getElementById("surahContent").innerHTML =
-    "Failed to load Surah.";
+document.getElementById("surahContent").innerHTML =
+"Failed to load Surah.";
+```
 
 });
