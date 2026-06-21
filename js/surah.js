@@ -10,11 +10,51 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
     document.getElementById("surahName").innerText =
     surah.englishName;
 
-    let verses = "";
+    const muqattaat = [
+        "الم","الر","المر","المص",
+        "كهيعص","طه","طس","طسم",
+        "يس","ص","حم","عسق",
+        "ق","ن"
+    ];
 
+    let verses = "";
     verses += `<div class="quran-page">`;
 
-    surah.ayahs.forEach(ayah => {
+    let ayahs = [...surah.ayahs];
+
+    if(surah.number !== 1 && surah.number !== 9){
+        verses += `
+        <div class="bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </div>
+        `;
+    }
+
+    if(surah.number !== 1 && surah.number !== 9){
+        ayahs[0].text =
+        ayahs[0].text.replace(
+        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+        ""
+        ).trim();
+    }
+
+    ayahs.forEach(ayah => {
+
+        if(ayah.numberInSurah === 1){
+            const firstWord =
+            ayah.text.split(" ")[0];
+
+            if(muqattaat.includes(firstWord)){
+                verses += `
+                <div class="muqattaat">
+                    ${firstWord}
+                </div>
+                `;
+
+                ayah.text =
+                ayah.text.replace(firstWord,"").trim();
+            }
+        }
 
         verses += `
         ${ayah.text}
