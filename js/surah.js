@@ -12,6 +12,8 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
 
     let verses = "";
 
+    verses += `<div class="quran-page">`;
+
     surah.ayahs.forEach(ayah => {
 
         verses += `
@@ -23,6 +25,8 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
         `;
 
     });
+
+    verses += `</div>`;
 
     document.getElementById("surahContent").innerHTML =
     verses;
