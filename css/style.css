@@ -1063,3 +1063,37 @@ footer p{
 
     margin:0 10px;
 }
+.quran-page{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 30px;
+
+    direction:rtl;
+    text-align:justify;
+
+    font-size:2.3rem;
+    line-height:2.8;
+
+    color:#fff;
+}
+
+.ayah-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:42px;
+    height:42px;
+
+    border:2px solid #c4d83f;
+    border-radius:50%;
+
+    color:#c4d83f;
+
+    font-size:14px;
+    font-weight:700;
+
+    margin:0 10px;
+
+    vertical-align:middle;
+}
