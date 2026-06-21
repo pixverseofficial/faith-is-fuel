@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const surahId = params.get("id");
 
-fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
+fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
 .then(res => res.json())
 .then(result => {
 
