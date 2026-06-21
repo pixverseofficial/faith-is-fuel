@@ -5,6 +5,8 @@ fetch(`https://api.quran.com/api/v4/chapters/${surahId}`)
 .then(res => res.json())
 .then(result => {
 
+    console.log(result);
+
     const surah = result.data;
 
     document.getElementById("surahName").innerText =
