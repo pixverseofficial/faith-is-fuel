@@ -1020,3 +1020,22 @@ footer p{
     color:#111;
     margin-bottom:25px;
 }
+.ayah-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    border:2px solid #111;
+    border-radius:50%;
+
+    font-size:16px;
+    font-weight:600;
+
+    margin-right:10px;
+    margin-left:10px;
+
+    vertical-align:middle;
+}
