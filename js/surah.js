@@ -15,13 +15,11 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
     surah.ayahs.forEach(ayah => {
 
         verses += `
-        <div class="ayah">
-            ${ayah.text}
+        ${ayah.text}
 
-            <span class="ayah-number">
-                ${ayah.numberInSurah}
-            </span>
-        </div>
+        <span class="ayah-number">
+            ${ayah.numberInSurah}
+        </span>
         `;
 
     });
