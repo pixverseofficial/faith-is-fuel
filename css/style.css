@@ -1039,3 +1039,11 @@ footer p{
 
     vertical-align:middle;
 }
+.quran-page{
+    max-width:900px;
+    margin:auto;
+    line-height:3;
+    font-size:2rem;
+    text-align:right;
+    direction:rtl;
+}
