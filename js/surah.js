@@ -15,9 +15,13 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
     surah.ayahs.forEach(ayah => {
 
         verses += `
-        <p class="ayah">
+        <div class="ayah">
             ${ayah.text}
-        </p>
+
+            <span class="ayah-number">
+                ${ayah.numberInSurah}
+            </span>
+        </div>
         `;
 
     });
@@ -32,30 +36,5 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
 
     document.getElementById("surahContent").innerHTML =
     "Failed to load Surah.";
-
-});
-fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
-.then(res => res.json())
-.then(result => {
-
-const surah = result.data;
-
-document.getElementById("surahName").innerText =
-surah.englishName;
-
-let verses = "";
-
-surah.ayahs.forEach(ayah => {
-
-verses += `
-<div class="ayah">
-${ayah.numberInSurah}. ${ayah.text}
-</div>
-`;
-
-});
-
-document.getElementById("surahContent").innerHTML =
-verses;
 
 });
