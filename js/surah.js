@@ -29,53 +29,15 @@ fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
         .trim();
     }
 
-    // Al-Ahqaf etc temporary fix
-    const muqattaat = [
-        "الم","الر","المر","المص",
-        "كهيعص","طه","طس","طسم",
-        "يس","ص","حم","عسق",
-        "ق","ن"
-    ];
-
-    const firstWord = ayahs[0].text.split(" ")[0];
-
-    if(muqattaat.includes(firstWord)){
+    ayahs.forEach((ayah,index)=>{
 
         verses += `
-        <div class="muqattaat">
-            ${firstWord}
-            <span class="ayah-number">1</span>
-        </div>`;
-
-        ayahs[0].text =
-        ayahs[0].text.replace(firstWord,"").trim();
-
-        verses += `
-        ${ayahs[0].text}
-        <span class="ayah-number">2</span>
+        ${ayah.text}
+        <span class="ayah-number">
+        ${ayah.numberInSurah}
+        </span>
         `;
-
-        for(let i=1;i<ayahs.length;i++){
-            verses += `
-            ${ayahs[i].text}
-            <span class="ayah-number">
-            ${i+2}
-            </span>
-            `;
-        }
-
-    }else{
-
-        ayahs.forEach((ayah,index)=>{
-
-            verses += `
-            ${ayah.text}
-            <span class="ayah-number">
-            ${index+1}
-            </span>
-            `;
-        });
-    }
+    });
 
     verses += `</div>`;
 
