@@ -991,11 +991,26 @@ footer p{
     color:#ff5b5b;
     margin-top:15px;
 }
-.quran-page{
-    max-width:1200px;
-    margin:50px auto;
-    padding:0 30px;
+#surahContent{
+    max-width:1000px;
+    margin:60px auto;
 
+    padding:60px;
+
+    border:2px solid #c4d83f;
+    border-radius:35px;
+
+    background:rgba(0,0,0,.15);
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+    0 0 25px rgba(196,216,63,.15);
+
+    position:relative;
+}
+
+.quran-page{
+    max-width:100%;
     direction:rtl;
     text-align:justify;
 
