@@ -9,6 +9,7 @@ fetch("data/full-adhkar.json")
 .then(res => res.json())
 .then(data => {
     const list = data[category] || [];
+    adhkarList.innerHTML = "";
     list.forEach(item => {
         adhkarList.innerHTML += `
             <div class="adhkar-card">
@@ -17,6 +18,9 @@ fetch("data/full-adhkar.json")
                 </div>
                 <div class="english">
                     ${item.english}
+                </div>
+                <div class="adhkar-count">
+                    ${item.count}
                 </div>
             </div>
         `;
