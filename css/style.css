@@ -15,7 +15,7 @@ body{
     overflow-x:hidden;
     min-height:100vh;
     position:relative;
-    padding-top:120px;
+    padding-top:0;
 }
 
 /* ==========================
@@ -164,23 +164,23 @@ body::after{
 }
 
 /* ==========================
-   HERO
+   QURAN HERO
 ========================== */
 
-.hero{
-
-    min-height:85vh;
-
+.quran-hero{
+    width:100%;
+    max-width:none;
+    min-height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
-    position:relative;
+    padding:40px 20px;
+    margin:0;
 }
 
-.hero::before{
+.quran-hero::before{
 
     content:"";
 
@@ -213,12 +213,12 @@ body::after{
     }
 }
 
-.hero-content{
+.quran-hero-content{
 
     max-width:850px;
 }
 
-.hero-logo{
+.quran-hero-logo{
 
     width:170px;
     height:170px;
@@ -248,7 +248,7 @@ body::after{
     }
 }
 
-.hero h1{
+.quran-hero h1{
 
     font-size:6rem;
 
@@ -260,7 +260,7 @@ body::after{
     0 0 20px rgba(255,255,255,.15);
 }
 
-.hero h2{
+.quran-hero h2{
 
     margin-top:15px;
 
@@ -271,7 +271,7 @@ body::after{
     font-weight:700;
 }
 
-.hero p{
+.quran-hero p{
 
     margin-top:25px;
 
@@ -370,17 +370,17 @@ body::after{
         gap:15px;
     }
 
-    .hero h1{
+    .quran-hero h1{
 
         font-size:3rem;
     }
 
-    .hero h2{
+    .quran-hero h2{
 
         font-size:1.5rem;
     }
 
-    .hero-logo{
+    .quran-hero-logo{
 
         width:130px;
         height:130px;
@@ -392,11 +392,12 @@ body::after{
         align-items:center;
     }
 }
+
 /* ==========================
    HOME PAGE SECTIONS
 ========================== */
 
-section{
+section:not(.quran-hero){
     width:90%;
     max-width:1300px;
     margin:120px auto;
@@ -1046,6 +1047,29 @@ footer p{
     width:90%;
     max-width:800px;
     margin:0 auto 50px auto;
+}
+
+.quran-search-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:30px;
+}
+
+.quran-search-card input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.05);
+    color:white;
+    font-size:1rem;
+}
+
+.quran-search-card input:focus{
+    outline:none;
+    border:1px solid #c4d83f;
 }
 
 .quran-list{
