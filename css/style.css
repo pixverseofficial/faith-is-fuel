@@ -504,6 +504,15 @@ section h2{
 
 }
 
+/* ADHKAR CONTAINER GRID STYLES */
+#adhkarContainer{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    max-width:1100px;
+    margin:auto;
+}
+
 .card h3{
     color:#c4d83f;
     margin-bottom:15px;
@@ -590,6 +599,11 @@ footer p{
 
     footer h3{
         font-size:1.5rem;
+    }
+
+    /* ADHKAR CONTAINER MOBILE */
+    #adhkarContainer{
+        grid-template-columns:1fr;
     }
 }
 /* ==========================
