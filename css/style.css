@@ -181,6 +181,20 @@ body::after{
     position:relative;
 }
 
+.adhkar-hero{
+    min-height:auto;
+    padding-top:180px;
+    padding-bottom:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin:0;
+    position:relative;
+    width:100%;
+}
+
 .quran-hero{
     min-height:auto;
     padding-top:180px;
@@ -194,7 +208,8 @@ body::after{
 }
 
 .hero::before,
-.quran-hero::before{
+.quran-hero::before,
+.adhkar-hero::before{
 
     content:"";
 
@@ -228,13 +243,15 @@ body::after{
 }
 
 .hero-content,
-.quran-hero-content{
+.quran-hero-content,
+.adhkar-hero-content{
 
     max-width:850px;
 }
 
 .hero-logo,
-.quran-hero-logo{
+.quran-hero-logo,
+.adhkar-hero-logo{
     display:block;
     margin:0 auto 25px;
     width:170px;
@@ -258,7 +275,8 @@ body::after{
 }
 
 .hero h1,
-.quran-hero h1{
+.quran-hero h1,
+.adhkar-hero h1{
 
     font-size:6rem;
 
@@ -271,7 +289,8 @@ body::after{
 }
 
 .hero h2,
-.quran-hero h2{
+.quran-hero h2,
+.adhkar-hero h2{
 
     margin-top:15px;
 
@@ -283,7 +302,8 @@ body::after{
 }
 
 .hero p,
-.quran-hero p{
+.quran-hero p,
+.adhkar-hero p{
 
     margin-top:25px;
 
@@ -383,19 +403,22 @@ body::after{
     }
 
     .hero h1,
-    .quran-hero h1{
+    .quran-hero h1,
+    .adhkar-hero h1{
 
         font-size:3rem;
     }
 
     .hero h2,
-    .quran-hero h2{
+    .quran-hero h2,
+    .adhkar-hero h2{
 
         font-size:1.5rem;
     }
 
     .hero-logo,
-    .quran-hero-logo{
+    .quran-hero-logo,
+    .adhkar-hero-logo{
 
         width:130px;
         height:130px;
@@ -412,7 +435,7 @@ body::after{
    HOME PAGE SECTIONS
 ========================== */
 
-section:not(.quran-hero):not(.hero){
+section:not(.quran-hero):not(.hero):not(.adhkar-hero){
     width:90%;
     max-width:1300px;
     margin:120px auto;
@@ -466,6 +489,19 @@ section h2{
 
 .card{
     text-align:center;
+}
+
+/* ADHKAR CONTAINER CARD STYLES */
+#adhkarContainer .card{
+
+    min-height:320px;
+
+    padding:35px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
 }
 
 .card h3{
