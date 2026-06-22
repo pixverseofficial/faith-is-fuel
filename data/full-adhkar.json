@@ -1,47 +1,139 @@
 {
-"morning": [
-{
-"arabic": "اللَّهُمَّ بِكَ أَصْبَحْنَا",
-"english": "O Allah, by You we enter the morning."
-},
-{
-"arabic": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ",
-"english": "We enter the morning and all dominion belongs to Allah."
-}
-],
-
-"evening": [
-{
-"arabic": "اللَّهُمَّ بِكَ أَمْسَيْنَا",
-"english": "O Allah, by You we enter the evening."
-}
-],
-
-"sleep": [
-{
-"arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
-"english": "In Your name O Allah I die and I live."
-}
-],
-
-"home": [
-{
-"arabic": "بِسْمِ اللَّهِ وَلَجْنَا",
-"english": "In the name of Allah we enter."
-}
-],
-
-"food": [
-{
-"arabic": "بِسْمِ اللَّهِ",
-"english": "In the name of Allah."
-}
-],
-
-"prayer": [
-{
-"arabic": "أَسْتَغْفِرُ اللَّهَ",
-"english": "I seek forgiveness from Allah."
-}
-]
+  "morning": [
+    {
+      "arabic": "آيَةُ الْكُرْسِيِّ",
+      "english": "Ayatul Kursi",
+      "count": "1x"
+    },
+    {
+      "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "english": "Surah Al-Ikhlas",
+      "count": "3x"
+    },
+    {
+      "arabic": "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
+      "english": "Surah Al-Falaq",
+      "count": "3x"
+    },
+    {
+      "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+      "english": "Surah An-Nas",
+      "count": "3x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ أَنْتَ رَبِّيْ لَا إِلٰهَ إِلَّا أَنْتَ...",
+      "english": "Sayyidul Istighfar",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ...",
+      "english": "Dua for Wellbeing",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ فَاطِرَ السَّمٰوَاتِ وَالْأَرْضِ...",
+      "english": "Protection from Evil",
+      "count": "1x"
+    },
+    {
+      "arabic": "يَا حَيُّ يَا قَيُّوْمُ بِرَحْمَتِكَ أَسْتَغِيْثُ...",
+      "english": "Ya Hayyu Ya Qayyum",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ مَا أَصْبَحَ بِيْ مِنْ نِّعْمَةٍ...",
+      "english": "Morning Gratitude",
+      "count": "1x"
+    },
+    {
+      "arabic": "أَصْبَحْنَا عَلَىٰ فِطْرَةِ الْإِسْلَامِ...",
+      "english": "Morning Declaration of Faith",
+      "count": "1x"
+    },
+    {
+      "arabic": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلّٰهِ...",
+      "english": "Morning Remembrance",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ إِنِّيْ أَصْبَحْتُ أُشْهِدُكَ...",
+      "english": "Testimony of Tawheed",
+      "count": "4x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا...",
+      "english": "Morning Invocation",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ عَافِنِيْ فِيْ بَدَنِيْ...",
+      "english": "Dua for Health",
+      "count": "3x"
+    },
+    {
+      "arabic": "حَسْبِيَ اللّٰهُ لَا إِلٰهَ إِلَّا هُوَ...",
+      "english": "Hasbiyallahu",
+      "count": "7x"
+    },
+    {
+      "arabic": "رَضِيْتُ بِاللّٰهِ رَبًّا...",
+      "english": "Radhitu Billah",
+      "count": "3x"
+    },
+    {
+      "arabic": "بِسْمِ اللّٰهِ الَّذِيْ لَا يَضُرُّ...",
+      "english": "Protection Dua",
+      "count": "3x"
+    },
+    {
+      "arabic": "سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ",
+      "english": "SubhanAllahi wa bihamdihi",
+      "count": "100x"
+    },
+    {
+      "arabic": "لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ...",
+      "english": "Tahlil",
+      "count": "100x"
+    },
+    {
+      "arabic": "أَسْتَغْفِرُ اللّٰهَ وَأَتُوْبُ إِلَيْهِ",
+      "english": "Istighfar",
+      "count": "100x"
+    }
+  ],
+  "evening": [
+    {
+      "arabic": "اللَّهُمَّ بِكَ أَمْسَيْنَا",
+      "english": "O Allah, by You we enter the evening.",
+      "count": "1x"
+    }
+  ],
+  "sleep": [
+    {
+      "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "english": "In Your name O Allah I die and I live.",
+      "count": "1x"
+    }
+  ],
+  "home": [
+    {
+      "arabic": "بِسْمِ اللَّهِ وَلَجْنَا",
+      "english": "In the name of Allah we enter.",
+      "count": "1x"
+    }
+  ],
+  "food": [
+    {
+      "arabic": "بِسْمِ اللَّهِ",
+      "english": "In the name of Allah.",
+      "count": "1x"
+    }
+  ],
+  "prayer": [
+    {
+      "arabic": "أَسْتَغْفِرُ اللَّهَ",
+      "english": "I seek forgiveness from Allah.",
+      "count": "1x"
+    }
+  ]
 }
