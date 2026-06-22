@@ -1274,3 +1274,41 @@ footer p{
 #surahMeta{
     color:#d9d9d9;
 }
+.adhkar-list{
+    width:95%;
+    max-width:1000px;
+    margin:50px auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.adhkar-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    transition:.4s;
+}
+
+.adhkar-card:hover{
+    transform:translateY(-5px);
+    border-color:#c4d83f;
+    box-shadow: 0 0 30px rgba(196,216,63,.15);
+}
+
+.adhkar-card .arabic{
+    font-family:'Amiri Quran',serif;
+    font-size:2.5rem;
+    line-height:2.2;
+    color:white;
+    margin-bottom:20px;
+}
+
+.adhkar-card .english{
+    color:#d9d9d9;
+    font-size:1rem;
+    line-height:1.8;
+}
