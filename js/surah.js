@@ -1,73 +1,137 @@
 const params = new URLSearchParams(window.location.search);
-const surahId = params.get("id");
 
-fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
+const surahId = Number(params.get("surah"));
+
+console.log(surahId);
+
+fetch(`https://api.alquran.cloud/v1/surah/${surahId}`)
 .then(res => res.json())
-.then(result => {
-
-    const surah = result.data;
+.then(data => {
 
     document.getElementById("surahName").innerText =
-    surah.englishName;
+    data.data.englishName;
 
-    let verses = `<div class="quran-page">`;
+    document.getElementById("surahArabicName").innerText =
+    data.data.name;
 
-    // Bismillah separate
-    if(surah.number !== 1 && surah.number !== 9){
-        verses += `
-        <div class="bismillah">
-        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        </div>`;
-    }
+    document.getElementById("surahMeta").innerText =
+    `${data.data.numberOfAyahs} Ayat • ${data.data.revelationType}`;
 
-    let ayahs = [...surah.ayahs];
+});
+ 
 
-    // remove bismillah from first ayah
-    if(surah.number !== 1 && surah.number !== 9){
-        ayahs[0].text = ayahs[0].text
-        .replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ","")
-        .trim();
-    }
+fetch(`https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`)
 
-    const muqattaat = [
-        "الم","الر","المر","المص",
-        "كهيعص","طه","طس","طسم",
-        "يس","ص","حم","عسق",
-        "ق","ن"
-    ];
+.then(res => res.json())
 
-    const firstWord = ayahs[0].text.split(" ")[0];
+.then(result => {
 
-    if(muqattaat.includes(firstWord)){
-        verses += `
-        <div class="muqattaat">
-            ${firstWord}
-            <span class="ayah-number">1</span>
-        </div>
+    let html = "";
+
+    const muqatta = {
+
+        2:"الم",
+        3:"الم",
+        7:"المص",
+        10:"الر",
+        11:"الر",
+        12:"الر",
+        13:"المر",
+        14:"الر",
+        15:"الر",
+        19:"كهيعص",
+        20:"طه",
+        26:"طسم",
+        27:"طس",
+        28:"طسم",
+        29:"الم",
+        30:"الم",
+        31:"الم",
+        32:"الم",
+        36:"يس",
+        38:"ص",
+        40:"حم",
+        41:"حم",
+        42:"حم عسق",
+        43:"حم",
+        44:"حم",
+        45:"حم",
+        46:"حم",
+        50:"ق",
+        68:"ن"
+
+    };
+
+    if(surahId !== 1 && surahId !== 9){
+
+        html += `
+
+            <div class="bismillah">
+
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+            </div>
+
         `;
 
-        ayahs[0].text =
-        ayahs[0].text.replace(firstWord, "").trim();
     }
 
-    ayahs.forEach((ayah,index)=>{
+    result.data.ayahs.forEach(ayah => {
 
-        let ayahNumber = index + 1;
-
-        if(muqattaat.includes(firstWord)){
-            ayahNumber = index + 2;
+        if (ayah.numberInSurah === 1) {
+            console.log(ayah.text);
         }
 
-        verses += `
-        ${ayah.text}
-        <span class="ayah-number">
-        ${ayahNumber}
-        </span>
+        if(
+            ayah.numberInSurah === 1 &&
+            muqatta[surahId]
+        ){
+
+            html += `
+
+                <div class="muqatta-line">
+
+                    <span class="muqatta">
+                        ${muqatta[surahId]}
+                    </span>
+
+                    <span class="ayah-number">
+                        1
+                    </span>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        if (
+            ayah.numberInSurah === 1 &&
+            surahId !== 1 &&
+            surahId !== 9 &&
+            !muqatta[surahId]
+        ){
+            const words = ayah.text.split(" ");
+            ayah.text = words.slice(4).join(" ");
+        }
+
+        html += `
+
+            ${ayah.text}
+
+            <span class="ayah-number">
+
+                ${ayah.numberInSurah}
+
+            </span>
+
         `;
+
     });
 
-    verses += `</div>`;
-
     document.getElementById("surahContent").innerHTML =
-    verses;
+    html;
+
 });
