@@ -8,13 +8,17 @@ fetch("data/adhkar.json")
 
 function renderAdhkar(list){
     container.innerHTML = "";
-    
     list.forEach(item => {
         container.innerHTML += `
-            <a href="adhkar-view.html?cat=${item.category.toLowerCase()}" class="card" style="text-decoration:none;color:white;">
+            <div class="card">
                 <h3>${item.title}</h3>
                 <p>${item.translation}</p>
-            </a>
+                <a href="adhkar-view.html?cat=${item.category.toLowerCase()}"
+                   class="btn primary-btn"
+                   style="margin-top:20px;display:inline-block;">
+                   Open Adhkar
+                </a>
+            </div>
         `;
     });
 }
