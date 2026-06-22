@@ -1,0 +1,37 @@
+[
+{
+"title": "Morning Adhkar",
+"category": "Morning",
+"translation": "Daily morning remembrances and supplications."
+},
+
+{
+"title": "Evening Adhkar",
+"category": "Evening",
+"translation": "Daily evening remembrances and supplications."
+},
+
+{
+"title": "Sleep Adhkar",
+"category": "Sleep",
+"translation": "Adhkar before sleeping."
+},
+
+{
+"title": "Home Adhkar",
+"category": "Home",
+"translation": "Adhkar related to entering and leaving home."
+},
+
+{
+"title": "Food Adhkar",
+"category": "Food",
+"translation": "Adhkar before and after eating."
+},
+
+{
+"title": "Prayer Adhkar",
+"category": "Prayer",
+"translation": "Adhkar related to Salah."
+}
+]
