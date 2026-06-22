@@ -164,22 +164,28 @@ body::after{
 }
 
 /* ==========================
-   QURAN HERO
+   HERO SECTIONS (Home & Quran)
 ========================== */
 
+.hero,
 .quran-hero{
     width:100%;
-    max-width:none;
     min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px 20px;
+    padding-top:120px;
+    padding-bottom:40px;
     margin:0;
 }
 
+.hero{
+    position:relative;
+}
+
+.hero::before,
 .quran-hero::before{
 
     content:"";
@@ -213,28 +219,23 @@ body::after{
     }
 }
 
+.hero-content,
 .quran-hero-content{
 
     max-width:850px;
 }
 
+.hero-logo,
 .quran-hero-logo{
-
+    display:block;
+    margin:0 auto 25px;
     width:170px;
     height:170px;
-
     border-radius:50%;
     object-fit:cover;
-
     border:3px solid rgba(255,255,255,.1);
-
-    box-shadow:
-    0 0 30px rgba(196,216,63,.8),
-    0 0 90px rgba(196,216,63,.4);
-
+    box-shadow:0 0 30px rgba(196,216,63,.8),0 0 90px rgba(196,216,63,.4);
     animation:logoFloat 4s ease-in-out infinite;
-
-    margin-bottom:25px;
 }
 
 @keyframes logoFloat{
@@ -248,6 +249,7 @@ body::after{
     }
 }
 
+.hero h1,
 .quran-hero h1{
 
     font-size:6rem;
@@ -260,6 +262,7 @@ body::after{
     0 0 20px rgba(255,255,255,.15);
 }
 
+.hero h2,
 .quran-hero h2{
 
     margin-top:15px;
@@ -271,6 +274,7 @@ body::after{
     font-weight:700;
 }
 
+.hero p,
 .quran-hero p{
 
     margin-top:25px;
@@ -370,16 +374,19 @@ body::after{
         gap:15px;
     }
 
+    .hero h1,
     .quran-hero h1{
 
         font-size:3rem;
     }
 
+    .hero h2,
     .quran-hero h2{
 
         font-size:1.5rem;
     }
 
+    .hero-logo,
     .quran-hero-logo{
 
         width:130px;
@@ -397,7 +404,7 @@ body::after{
    HOME PAGE SECTIONS
 ========================== */
 
-section:not(.quran-hero){
+section:not(.quran-hero):not(.hero){
     width:90%;
     max-width:1300px;
     margin:120px auto;
@@ -1073,23 +1080,28 @@ footer p{
 }
 
 .quran-list{
-    width:90%;
-    max-width:1300px;
-    margin:0 auto 80px auto;
+    width:95%;
+    max-width:1600px;
+    margin:0 auto 80px auto !important;
 }
 
 #surahList.cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
 }
 
 .surah-card{
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
     background:rgba(255,255,255,.04);
     backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,.08);
     border-radius:30px;
-    padding:35px;
     text-align:center;
     transition:.4s;
 }
