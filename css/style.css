@@ -1040,3 +1040,139 @@ footer p{
 
     vertical-align:middle;
 }
+/* QURAN PAGE */
+
+.quran-search-section{
+    width:90%;
+    max-width:800px;
+    margin:0 auto 50px auto;
+}
+
+.quran-list{
+    width:90%;
+    max-width:1300px;
+    margin:0 auto 80px auto;
+}
+
+#surahList.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.surah-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:35px;
+    text-align:center;
+    transition:.4s;
+}
+
+.surah-card:hover{
+    transform:translateY(-10px);
+    border-color:#c4d83f;
+    box-shadow:
+    0 0 30px rgba(196,216,63,.15),
+    0 0 60px rgba(196,216,63,.08);
+}
+
+.surah-card h3{
+    color:#c4d83f;
+    margin-bottom:20px;
+}
+
+.open-btn{
+    margin-top:15px;
+    padding:12px 24px;
+    border:none;
+    border-radius:999px;
+    background:#c4d83f;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.open-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(196,216,63,.4);
+}
+
+/* SURAH PAGE */
+
+.quran-container{
+    width:95%;
+    max-width:1200px;
+    margin:50px auto;
+    padding:30px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+}
+
+#surahContent{
+    font-family:'Amiri Quran',serif;
+    font-size:2.4rem;
+    line-height:5.8rem;
+    word-spacing:6px;
+    text-align:right;
+    direction:rtl;
+}
+
+#surahContent .bismillah{
+    text-align:center;
+    color:#c4d83f;
+    font-size:2.8rem;
+    margin-bottom:35px;
+}
+
+.ayah-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    margin:0 10px;
+    border:1.5px solid #c4d83f;
+    border-radius:50%;
+    color:#c4d83f;
+    font-size:.75rem;
+    font-weight:700;
+    vertical-align:middle;
+}
+
+.muqatta-line{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.muqatta{
+    color:#c4d83f;
+    font-size:3.5rem;
+    letter-spacing:10px;
+    font-family:'Amiri Quran',serif;
+}
+
+.surah-header-card{
+    margin-top:25px;
+    padding:25px 35px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    text-align:center;
+}
+
+#surahArabicName{
+    font-family:'Amiri Quran',serif;
+    font-size:3rem;
+    color:#c4d83f;
+    margin-bottom:10px;
+}
+
+#surahMeta{
+    color:#d9d9d9;
+}
