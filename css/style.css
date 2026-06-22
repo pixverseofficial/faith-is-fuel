@@ -167,8 +167,7 @@ body::after{
    HERO SECTIONS (Home & Quran)
 ========================== */
 
-.hero,
-.quran-hero{
+.hero{
     width:100%;
     min-height:100vh;
     display:flex;
@@ -179,10 +178,19 @@ body::after{
     padding-top:120px;
     padding-bottom:40px;
     margin:0;
+    position:relative;
 }
 
-.hero{
-    position:relative;
+.quran-hero{
+    min-height:auto;
+    padding-top:180px;
+    padding-bottom:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin:0;
 }
 
 .hero::before,
@@ -934,7 +942,7 @@ footer p{
 #reelsList::-webkit-scrollbar-track{
     background:rgba(255,255,255,.05);
 }
-```css
+
 .login-screen{
     position:fixed;
     inset:0;
@@ -1085,10 +1093,14 @@ footer p{
     margin:0 auto 80px auto !important;
 }
 
-#surahList.cards{
+#surahList{
+    width:95%;
+    max-width:1600px;
+    margin:0 auto 80px auto;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
 }
 
 .surah-card{
@@ -1097,12 +1109,12 @@ footer p{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:40px;
+    text-align:center;
     background:rgba(255,255,255,.04);
     backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,.08);
     border-radius:30px;
-    text-align:center;
+    padding:40px;
     transition:.4s;
 }
 
@@ -1211,7 +1223,4 @@ footer p{
 
 #surahMeta{
     color:#d9d9d9;
-}
-.quran-hero{
-    padding-top:140px;
 }
