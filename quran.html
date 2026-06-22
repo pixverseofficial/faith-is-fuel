@@ -1,87 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Quran</title>
 
-<title>Al Quran | Faith Is Fuel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<div class="page-loader">
-    <img src="assets/logo.png" alt="Logo">
-</div>
+    <section class="hero">
 
-<nav class="navbar">
+        <img src="assets/faith-is-fuel-logo.png" class="hero-logo">
 
-<div class="logo-box">
-<img src="assets/logo.png" alt="Faith Is Fuel">
-</div>
+        <h1>AL QURAN</h1>
 
-<ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="library.html">Faith Library</a></li>
-    <li><a href="quran.html">Quran</a></li>
-    <li><a href="adhkar.html">Adhkar</a></li>
-    <li><a href="scholar.html">Scholar</a></li>
-    <li><a href="contact.html">Contact</a></li>
-</ul>
+        <h2>114 Surahs</h2>
 
-</nav>
+        <p>
+            Read and explore the Noble Quran.
+        </p>
 
-<section class="hero">
+    </section>
 
-<div class="hero-content">
+    <div class="search-section">
 
-<img src="assets/logo.png" class="hero-logo">
+        <div class="search-card">
 
-<h1>AL QURAN</h1>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Surah..."
+            >
 
-<h2>114 Surahs</h2>
+        </div>
 
-<p>
-Read and explore the Noble Quran.
-</p>
+    </div>
 
-</div>
+    <div id="surahList">
 
-</section>
+    </div>
 
-<section class="quran-search-section">
-
-<div class="glass-card">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search Surah..."
-class="admin-input">
-
-</div>
-
-</section>
-
-<section class="quran-list">
-
-<div id="surahList" class="cards">
-
-</div>
-
-</section>
-
-<script src="js/main.js"></script>
-<script src="js/quran.js"></script>
+    <script src="js/quran.js"></script>
 
 </body>
 </html>
