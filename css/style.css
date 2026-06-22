@@ -1312,3 +1312,47 @@ footer p{
     font-size:1rem;
     line-height:1.8;
 }
+.adhkar-list{
+    width:95%;
+    max-width:1000px;
+    margin:50px auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.adhkar-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    transition:.3s;
+}
+
+.adhkar-card:hover{
+    transform:translateY(-5px);
+    border-color:#c4d83f;
+}
+
+.arabic{
+    font-family:'Amiri Quran', serif;
+    font-size:2.3rem;
+    line-height:2.2;
+    margin-bottom:20px;
+}
+
+.english{
+    color:#d9d9d9;
+    line-height:1.8;
+}
+
+.adhkar-count{
+    margin-top:20px;
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#c4d83f;
+    color:#111;
+    font-weight:700;
+}
