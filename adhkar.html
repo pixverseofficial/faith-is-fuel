@@ -2,164 +2,100 @@
 
 <html lang="en">
 
-
-
 <head>
 
-
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 
 <title>Adhkar | Faith Is Fuel</title>
 
-
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-
 
 <link rel="stylesheet" href="css/style.css">
 
-
-
 </head>
-
-
 
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo-box">
+        <img src="assets/logo.png" alt="Faith Is Fuel">
+    </div>
 
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="library.html">Faith Library</a></li>
+        <li><a href="quran.html">Quran</a></li>
+        <li><a href="adhkar.html" class="active">Adhkar</a></li>
+        <li><a href="scholar.html">Scholar</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
 <section class="hero">
 
-
-
     <img src="assets/logo.png" class="hero-logo">
-
-
 
     <div class="hero-content">
 
-
-
         <h1>ADHKAR</h1>
-
-
 
         <h2>Daily Remembrances & Duas</h2>
 
-
-
         <p>
-
             Authentic adhkar and supplications for every moment of life.
-
         </p>
-
-
 
     </div>
 
-
-
 </section>
-
-
 
 <section class="adhkar-search">
 
-
-
     <div class="glass-card">
 
-
-
         <input
-
         type="text"
-
         id="adhkarSearch"
-
         class="search-box"
-
         placeholder="Search Adhkar...">
-
-
 
     </div>
 
-
-
 </section>
-
-
 
 <section class="library-switch">
 
-
-
     <div class="switch-buttons">
-
-
 
         <button class="switch-btn active" data-category="All">All</button>
 
-
-
         <button class="switch-btn" data-category="Morning">Morning</button>
-
-
 
         <button class="switch-btn" data-category="Evening">Evening</button>
 
-
-
         <button class="switch-btn" data-category="Sleep">Sleep</button>
-
-
 
         <button class="switch-btn" data-category="Home">Home</button>
 
-
-
         <button class="switch-btn" data-category="Food">Food</button>
-
-
 
         <button class="switch-btn" data-category="Prayer">Prayer</button>
 
-
-
     </div>
 
-
-
 </section>
-
-
 
 <section>
 
-
-
     <div id="adhkarContainer" class="cards"></div>
-
-
 
 </section>
 
-
-
 <script src="js/adhkar.js"></script>
-
-
 
 </body>
 
 </html>
-
-
