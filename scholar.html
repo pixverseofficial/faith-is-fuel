@@ -1,4 +1,4 @@
- <!DOCTYPE html> 
+<!DOCTYPE html> 
 
 <html lang="en">
 
@@ -98,6 +98,57 @@
 
 
 
+    <!-- Ask Question Section -->
+
+    <section class="scholar-section">
+
+        <div class="glass-card scholar-card">
+
+            <h2>Ask a Question</h2>
+
+            <p>
+                Submit your question and a Salafi scholar will respond
+                with authentic evidence from the Qur'an and Sunnah.
+            </p>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                class="search-box">
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Phone Number"
+                class="search-box">
+
+            <select id="category" class="search-box">
+                <option value="">Select Category</option>
+                <option value="Aqeedah">Aqeedah</option>
+                <option value="Fiqh">Fiqh</option>
+                <option value="Hadeeth">Hadeeth</option>
+                <option value="Tafseer">Tafseer</option>
+                <option value="Family">Family</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <textarea
+                id="question"
+                placeholder="Type your question..."
+                rows="6"
+                class="search-box"></textarea>
+
+            <button onclick="sendQuestion()" class="btn primary-btn">
+                Submit Question
+            </button>
+
+        </div>
+
+    </section>
+
+
+
 </body>
 
-</html> 
+</html>
