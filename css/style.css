@@ -1359,3 +1359,34 @@ footer p{
 .arabic{
     direction: rtl;
 }
+/* Scholar Page */
+
+.scholar-card{
+   max-width:800px;
+}
+
+/* FAQ Section */
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.faq-container{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.faq-item h3{
+    margin-bottom:10px;
+    color:var(--primary-color);
+}
+
+.faq-item p{
+    line-height:1.7;
+    opacity:.9;
+}
