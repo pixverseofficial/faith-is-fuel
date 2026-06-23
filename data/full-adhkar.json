@@ -294,8 +294,58 @@
   ],
   "food": [
     {
-      "arabic": "بِسْمِ اللَّهِ",
-      "english": "In the name of Allah.",
+      "arabic": "بِسْمِ اللّٰهِ",
+      "english": "Before Eating - In the name of Allah.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ بَارِكْ لَنَا فِيْهِ وَأَطْعِمْنَا خَيْراً مِنْهُ",
+      "english": "Before Eating - O Allah, bless us in it and give us better than it.",
+      "count": "1x"
+    },
+    {
+      "arabic": "بِسْمِ اللّٰهِ أَوَّلَهُ وَآخِرَهُ",
+      "english": "If One Forgets at the Beginning - In the name of Allah at its beginning and at its end.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنِيْ هٰذَا ، وَرَزَقَنِيْهِ مِنْ غَيْرِ حَوْلٍ مِنِّيْ وَلَا قُوَّةٍ",
+      "english": "After Eating - All praise is due to Allah who gave me this to eat and provided me with it without any power or strength from me.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ كَفَانَا وَأَرْوَانَا ، غَيْرَ مَكْفِىٍّ وَلَا مَكْفُوْرٍ",
+      "english": "After Eating - All praise is due to Allah who gave us enough to eat and drink, neither insufficient nor ungrateful.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْنَ",
+      "english": "After Eating - All praise is due to Allah who fed us, gave us drink, and made us Muslims.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَ وَسَقَىٰ ، وَسَوَّغَهُ وَجَعَلَ لَهُ مَخْرَجًا",
+      "english": "After Eating - All praise is due to Allah who fed, gave drink, made it easy to swallow, and made a way out for it.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اللَّهُمَّ أَطْعِمْ مَنْ أَطْعَمَنِيْ وَاسْقِ مَنْ سَقَانِي",
+      "english": "Supplication for Somebody Who Gives One Food or Drink - O Allah, feed the one who fed me and give drink to the one who gave me drink.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ بَارِكْ لَهُمْ فِيْ مَا رَزَقْتَهُمْ ، وَاغْفِرْ لَهُمْ وَارْحَمْهُمْ",
+      "english": "Du'a' for the Host - O Allah, bless them in what You have provided them, forgive them and have mercy on them.",
+      "count": "1x"
+    },
+    {
+      "arabic": "ذَهَبَ الظَّمَأُ ، وَابْتَلَّتِ الْعُرُوْقُ ، وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللّٰهُ",
+      "english": "After Opening a Fast - Thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ لَكَ صُمْتُ وَعَلَىٰ رِزْقِكَ أَفْطَرْتُ",
+      "english": "After Opening a Fast - O Allah, for You I have fasted and upon Your provision I have broken my fast.",
       "count": "1x"
     }
   ],
