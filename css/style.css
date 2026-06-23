@@ -1410,3 +1410,10 @@ footer p{
 .faq-item h3{
     color:#c7d92f;
 }
+.faq-container .btn{
+    display:block;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
