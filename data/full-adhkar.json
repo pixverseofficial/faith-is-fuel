@@ -257,8 +257,38 @@
   ],
   "home": [
     {
-      "arabic": "بِسْمِ اللَّهِ وَلَجْنَا",
-      "english": "In the name of Allah we enter.",
+      "arabic": "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+      "english": "Peace be upon you and the mercy of Allah.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ أَنْ أَضِلَّ أَوْ أُضَلَّ ، أَوْ أَزِلَّ أَوْ أُزَلَّ ، أَوْ أَظْلِمَ أَوْ أُظْلَمَ ، أَوْ أَجْهَلَ أَوْ يُجْهَلَ عَلَيَّ",
+      "english": "O Allah, I seek refuge in You from going astray or being led astray, from slipping or being made to slip, from oppressing or being oppressed, from acting ignorantly or being treated ignorantly.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ خَيْرَ الْمَوْلَجِ ، وَخَيْرَ الْمَخْرَجِ ، بِسْمِ اللّٰهِ وَلَجْنَا ، وَبِسْمِ اللّٰهِ خَرَجْنَا ، وَعَلَى اللّٰهِ رَبِّنَا تَوَكَّلْنَا",
+      "english": "O Allah, I ask You for the goodness of entering and the goodness of exiting. In the name of Allah we enter, and in the name of Allah we exit, and upon Allah our Lord we rely.",
+      "count": "1x"
+    },
+    {
+      "arabic": "بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى رَبِّنَا تَوَكَّلْنَا",
+      "english": "In the name of Allah we enter, and in the name of Allah we exit, and upon our Lord we rely.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اللَّهُمَّ اجْعَلْ فِي قَلْبِي نُورًا، وَفِي لِسَانِي نُورًا، وَاجْعَلْ فِي سَمْعِي نُورًا، وَاجْعَلْ فِي بَصَرِي نُورًا",
+      "english": "O Allah, place light in my heart, light on my tongue, light in my hearing, and light in my sight.",
+      "count": "1x"
+    },
+    {
+      "arabic": "اللَّهُمَّ اجْعَلْ فِي بَيْتِي نُورًا وَفِي قَلْبِي نُورًا",
+      "english": "O Allah, place light in my home and light in my heart.",
+      "count": "1x"
+    },
+    {
+      "arabic": "بِسْمِ اللّٰهِ تَوَكَّلْتُ عَلَى اللّٰهِ ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ",
+      "english": "In the name of Allah, I put my trust in Allah. There is no power and no strength except with Allah.",
       "count": "1x"
     }
   ],
