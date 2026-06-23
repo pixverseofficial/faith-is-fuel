@@ -123,6 +123,12 @@
                 placeholder="Phone Number"
                 class="search-box">
 
+            <input
+                type="text"
+                id="place"
+                placeholder="Place"
+                class="search-box">
+
             <select id="category" class="search-box">
                 <option value="">Select Category</option>
                 <option value="Aqeedah">Aqeedah</option>
@@ -155,34 +161,25 @@
 
         const name = document.getElementById("name").value;
         const phone = document.getElementById("phone").value;
+        const place = document.getElementById("place").value;
         const category = document.getElementById("category").value;
         const question = document.getElementById("question").value;
 
-        if (!name || !phone || !category || !question) {
+        if (!name || !phone || !place || !category || !question) {
             alert("Please fill all fields.");
             return;
         }
 
         const message =
-    `📚 Scholar Question
+`📚 *Scholar Question*
 
+👤 *Name:* ${name}
+📱 *Phone:* ${phone}
+📍 *Place:* ${place}
+📖 *Category:* ${category}
 
-
-    👤 Name: ${name}
-
-
-
-    📱 Phone: ${phone}
-
-
-
-    📖 Category: ${category}
-
-
-
-    ❓ Question:
-
-    ${question}`;
+❓ *Question:*
+${question}`;
 
         const whatsappURL =
         "https://wa.me/918547247107?text=" +
