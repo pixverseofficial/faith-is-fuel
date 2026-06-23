@@ -149,6 +149,52 @@
 
 
 
+    <script>
+
+    function sendQuestion() {
+
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const category = document.getElementById("category").value;
+        const question = document.getElementById("question").value;
+
+        if (!name || !phone || !category || !question) {
+            alert("Please fill all fields.");
+            return;
+        }
+
+        const message =
+    `📚 Scholar Question
+
+
+
+    👤 Name: ${name}
+
+
+
+    📱 Phone: ${phone}
+
+
+
+    📖 Category: ${category}
+
+
+
+    ❓ Question:
+
+    ${question}`;
+
+        const whatsappURL =
+        "https://wa.me/918547247107?text=" +
+        encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank");
+    }
+
+    </script>
+
+
+
 </body>
 
 </html>
