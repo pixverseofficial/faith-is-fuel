@@ -1391,3 +1391,22 @@ footer p{
     line-height:1.7;
     opacity:.9;
 }
+.faq-item a{
+    text-decoration:none;
+    color:#c7d92f;
+    font-weight:600;
+}
+
+.faq-item{
+    text-align:center;
+    transition:.3s;
+}
+
+.faq-item:hover{
+    border:1px solid #c7d92f;
+    box-shadow:0 0 20px rgba(199,217,47,.3);
+}
+
+.faq-item h3{
+    color:#c7d92f;
+}
