@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://pixverseofficial.github.io/faith-is-fuel/</loc>
-</url>
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/about.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/adhkar.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/adhkar-view.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/library.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/quran.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/scholar.html</loc>
+  </url>
+
+  <url>
+    <loc>https://pixverseofficial.github.io/faith-is-fuel/surah.html</loc>
+  </url>
 
 </urlset>
