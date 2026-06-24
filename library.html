@@ -265,9 +265,10 @@ window.showTab = function(tabId, btn) {
 import {
 db,
 collection,
+addDoc,
 getDocs,
-query,
-where
+deleteDoc,
+doc
 } from "./js/firebase.js";
 
 
@@ -430,6 +431,7 @@ const card = document.createElement("div");
 card.className = "card";
 
 card.innerHTML = `
+<div>
 
 <img
 src="assets/logo.png"
@@ -447,11 +449,12 @@ box-shadow:0 0 20px rgba(196,216,63,.5);
 
 <p>${reel.description}</p>
 
+</div>
+
 <button
 class="read-more-btn">
 Watch Reel
 </button>
-
 `;
 
 card.querySelector(".read-more-btn")
