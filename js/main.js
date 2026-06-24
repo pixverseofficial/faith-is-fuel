@@ -29,7 +29,7 @@ document.querySelectorAll("a").forEach(link => {
 
         setTimeout(() => {
             window.location.href = href;
-        }, 2500);
+        }, 1800);
 
     });
 
