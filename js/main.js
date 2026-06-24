@@ -29,13 +29,11 @@ document.querySelectorAll("a").forEach(link => {
 
         setTimeout(() => {
             window.location.href = href;
-        }, 1000);
+        }, 2500);
 
     });
 
 });
-// page loader code
-...
 
 // navbar scroll effect
 const navbar = document.querySelector(".navbar");
