@@ -488,10 +488,6 @@ section h2{
 }
 
 .card{
-    min-height:420px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
     text-align:center;
 }
 
@@ -897,17 +893,15 @@ footer p{
 
 }
 
-/* REELS CONTAINER CARD STYLES */
-#reelsContainer .card{
+.reel-card{
     height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-#reelsContainer .card p{
-    height: 90px;
-    overflow: hidden;
+.reel-card p{
+    overflow:hidden;
 }
 
 .article-modal{
