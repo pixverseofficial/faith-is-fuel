@@ -12,14 +12,35 @@ document.querySelectorAll("a").forEach(link => {
 
         const href = this.getAttribute("href");
 
+        document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        const href = this.getAttribute("href");
+
         if (
             !href ||
             href.startsWith("#") ||
             href.startsWith("mailto:") ||
-            href.startsWith("tel:")
+            href.startsWith("tel:") ||
+            this.target === "_blank"
         ) {
             return;
         }
+
+        e.preventDefault();
+
+        if (loader) {
+            loader.classList.add("show");
+        }
+
+        setTimeout(() => {
+            window.location.href = href;
+        }, 1800);
+
+    });
+
+});
 
         e.preventDefault();
 
